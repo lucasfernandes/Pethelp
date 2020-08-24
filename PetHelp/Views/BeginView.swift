@@ -28,9 +28,7 @@ struct BeginView: View {
                         .padding([.leading, .bottom, .trailing], 16)
 
                     Spacer().frame(height: 30)
-                    ButtonSpaced(title: "Vamos começar", action: {
-                        self.linkIsActive = true
-                    })
+                    FBLoginButton() { self.linkIsActive = true }
                     NavigationLink(destination: NewAccountView(), isActive: $linkIsActive) {}
                 }
                 .navigationBarHidden(true)

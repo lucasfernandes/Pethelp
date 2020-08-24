@@ -6,11 +6,15 @@
 //
 
 import SwiftUI
+import FBSDKCoreKit
 
 struct ContentView: View {
     var body: some View {
-//        BeginView()
-        FacebookLogin()
+        BeginView()
+//        FBLoginButton()
+            .onOpenURL(perform: { url in
+                ApplicationDelegate.shared.application(UIApplication.shared, open: url, sourceApplication: nil, annotation: UIApplication.OpenURLOptionsKey.annotation)
+                       })
     }
 }
 
