@@ -7,8 +7,10 @@
 
 import SwiftUI
 
-struct BeginView: View {
+struct BeginView: View {    
     @State var linkIsActive = false
+    @EnvironmentObject var userStore: UserStore
+
     var body: some View {
         NavigationView {
             BaseView {
@@ -28,8 +30,12 @@ struct BeginView: View {
                         .padding([.leading, .bottom, .trailing], 16)
 
                     Spacer().frame(height: 30)
-                    FBLoginButton() { self.linkIsActive = true }
-                    NavigationLink(destination: NewAccountView(), isActive: $linkIsActive) {}
+                    ButtonSpaced(title: "Login com Facebook") {
+                        if !$userStore.logged.wrappedValue {
+                            userStore.loginWithFacebook()
+                        }
+                    }
+                    NavigationLink(destination: NewAccountView(), isActive: $userStore.logged) {}
                 }
                 .navigationBarHidden(true)
                 .navigationTitle("Início")

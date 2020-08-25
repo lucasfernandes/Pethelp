@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct NewAccountView: View {
+    @EnvironmentObject var userStore: UserStore
+
     var body: some View {
         BaseView(isNavigationEnabled: true) {
             VStack(spacing: 20) {
                 Spacer()
+                Text("Is Logged: \($userStore.logged.wrappedValue.description)")
                 Image("Illustration")
                     .frame(width: 120, height: 120, alignment: .center)
                     .clipShape(Circle())
@@ -32,6 +35,11 @@ struct NewAccountView: View {
             .navigationTitle("Nova conta")
             .keyboardAdaptive()
         }
+        .navigationBarItems(trailing: Button(action: {
+            userStore.logout()
+        }, label: {
+            Text("Sair")
+        }))
     }
 }
 
