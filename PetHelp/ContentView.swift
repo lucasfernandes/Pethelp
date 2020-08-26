@@ -11,7 +11,7 @@ import FBSDKCoreKit
 struct ContentView: View {
     var userStore = UserStore()
     var body: some View {
-        BeginView()
+        LoginView()
             .onOpenURL(perform: { url in
                 ApplicationDelegate.shared.application(
                     UIApplication.shared,

@@ -22,6 +22,7 @@ struct BaseView<Content: View>: View {
             VStack {
                 Spacer().frame(height: isNavigationEnabled ? 150 : 50)
                 content
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding(.all, 16)
