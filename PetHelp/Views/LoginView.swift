@@ -12,32 +12,39 @@ struct LoginView: View {
     @EnvironmentObject var userStore: UserStore
 
     var body: some View {
+        ZStack {
         NavigationView {
             BaseView {
-                VStack {
-                    Image("Logo")
-                        .resizable()
+                    VStack {
+                        Image("Logo")
+                            .resizable()
 
-                    Image("Illustration")
-                        .resizable()
-                        .frame(height: 400)
+                        Image("Illustration")
+                            .resizable()
+                            .frame(height: 400)
 
-                    Text("O PetHelp foi desenvolvido para ajudar animais de rua que precisam de todos nós para sobreviverem de alguma forma.")
-                        .font(.system(size: 16, weight: .regular, design: .default))
-                        .foregroundColor(.gray)
-                        .multilineTextAlignment(.center)
-                        .lineSpacing(8)
-                        .padding([.leading, .bottom, .trailing], 16)
+                        Text("O PetHelp foi desenvolvido para ajudar animais de rua que precisam de todos nós para sobreviverem de alguma forma.")
+                            .font(.system(size: 16, weight: .regular, design: .default))
+                            .foregroundColor(.gray)
+                            .multilineTextAlignment(.center)
+                            .lineSpacing(8)
+                            .padding([.leading, .bottom, .trailing], 16)
 
-                    Spacer().frame(height: 30)
-                    ButtonSpaced(title: $userStore.logged.wrappedValue ? "Entrar" : "Login com Facebook") {
-                        if !$userStore.logged.wrappedValue {
-                            userStore.loginWithFacebook()
+                        Spacer().frame(height: 30)
+                        ButtonSpaced(title: $userStore.logged.wrappedValue ? "Continuar" : "Login com Facebook") {
+                            $userStore.logged.wrappedValue == false
+                                ? userStore.loginWithFacebook()
+                                : userStore.getUser()
                         }
+                        NavigationLink(destination: HomeView(), isActive: $userStore.hasUserInfo) {}
                     }
-                    NavigationLink(destination: HomeView(), isActive: $userStore.logged) {}
+                    .navigationBarHidden(true)
+                    .padding(.all, 16)
                 }
-                .navigationBarHidden(true)
+            }
+
+            if $userStore.isLoading.wrappedValue {
+                LoadingView()
             }
         }
     }

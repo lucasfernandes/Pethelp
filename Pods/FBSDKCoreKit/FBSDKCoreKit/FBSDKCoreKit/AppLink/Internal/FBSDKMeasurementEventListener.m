@@ -24,7 +24,6 @@
 
 #import "FBSDKAppEvents+Internal.h"
 #import "FBSDKTimeSpentData.h"
-#import "FBSDKTypeUtility.h"
 
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
 
@@ -76,7 +75,7 @@ static NSString *const FBSDKMeasurementEventPrefix = @"bf_";
                                                               range:NSMakeRange(0, key.length)
                                                        withTemplate:@"-"];
         safeKey = [safeKey stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@" -"]];
-        [FBSDKTypeUtility dictionary:logData setObject:eventArgs[key] forKey:safeKey];
+        logData[safeKey] = eventArgs[key];
     }
     [FBSDKAppEvents logInternalEvent:[FBSDKMeasurementEventPrefix stringByAppendingString:note.userInfo[FBSDKMeasurementEventName]]
                           parameters:logData

@@ -15,14 +15,6 @@ struct SettingsView: View {
 
     var body: some View {
         NavigationView {
-//            VStack {
-//                userStore.user?.picture.data.url.getImage().renderingMode(.original)
-//                    .resizable(capInsets: EdgeInsets(), resizingMode: .stretch)
-//                    .frame(width: 80, height: 80, alignment: .center)
-//                    .clipShape(Circle())
-//                    .overlay(Circle().stroke(Color("lightBlue"), lineWidth: 2))
-//            }
-
             List {
                 HStack(spacing: 10) {
                     userStore.user?.picture.data.url.getImage().renderingMode(.original)
@@ -32,8 +24,8 @@ struct SettingsView: View {
                         .overlay(Circle().stroke(Color("lightBlue"), lineWidth: 2))
 
                     VStack(alignment: .leading) {
-                        Text(userStore.user!.name)
-                        Text(userStore.user!.email)
+                        Text(userStore.user?.name ?? "")
+                        Text(userStore.user?.email ?? "")
                             .font(.caption)
                     }
                 }

@@ -12,6 +12,7 @@ struct ContentView: View {
     var userStore = UserStore()
     var body: some View {
         LoginView()
+//        PetListView()
             .onOpenURL(perform: { url in
                 ApplicationDelegate.shared.application(
                     UIApplication.shared,

@@ -8,9 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		23AA5223C90AD984D66BACDB /* Pods_PetHelp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E1F5351E82C6E8CCE33DEB /* Pods_PetHelp.framework */; };
-		E30342F724F3EA2C00082D1D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E30342F624F3EA2C00082D1D /* GoogleService-Info.plist */; };
 		E303430C24F43A7000082D1D /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E303430B24F43A7000082D1D /* Launch Screen.storyboard */; };
 		E3259F8424F09B0E00EBE511 /* ButtonSpaced.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3259F8324F09B0E00EBE511 /* ButtonSpaced.swift */; };
+		E38DB83D24F72E3D0034AA47 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E38DB83C24F72E3D0034AA47 /* GoogleService-Info.plist */; };
+		E38DB83F24F738800034AA47 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38DB83E24F738800034AA47 /* LoadingView.swift */; };
+		E38DB84124F741D30034AA47 /* PetListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38DB84024F741D30034AA47 /* PetListItemView.swift */; };
 		E39FC04E24F49449002C12CB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39FC04D24F49449002C12CB /* User.swift */; };
 		E39FC05124F49720002C12CB /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39FC05024F49720002C12CB /* UserStore.swift */; };
 		E3A3F87824F340190065E6A7 /* KeyboardAdaptative.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A3F87724F340190065E6A7 /* KeyboardAdaptative.swift */; };
@@ -35,9 +37,11 @@
 		2462913B53F4489AA09383E0 /* Pods-PetHelp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetHelp.debug.xcconfig"; path = "Target Support Files/Pods-PetHelp/Pods-PetHelp.debug.xcconfig"; sourceTree = "<group>"; };
 		41CD760006D886CF45A958D7 /* Pods-PetHelp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetHelp.release.xcconfig"; path = "Target Support Files/Pods-PetHelp/Pods-PetHelp.release.xcconfig"; sourceTree = "<group>"; };
 		66E1F5351E82C6E8CCE33DEB /* Pods_PetHelp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetHelp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E30342F624F3EA2C00082D1D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E303430B24F43A7000082D1D /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		E3259F8324F09B0E00EBE511 /* ButtonSpaced.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSpaced.swift; sourceTree = "<group>"; };
+		E38DB83C24F72E3D0034AA47 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E38DB83E24F738800034AA47 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		E38DB84024F741D30034AA47 /* PetListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetListItemView.swift; sourceTree = "<group>"; };
 		E39FC04D24F49449002C12CB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E39FC05024F49720002C12CB /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		E3A3F87724F340190065E6A7 /* KeyboardAdaptative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAdaptative.swift; sourceTree = "<group>"; };
@@ -97,6 +101,7 @@
 				E3259F8324F09B0E00EBE511 /* ButtonSpaced.swift */,
 				E3EA0EF224F205390020C007 /* RoundedTextField.swift */,
 				E3A44A3A24F212BC0079AEAA /* BaseView.swift */,
+				E38DB83E24F738800034AA47 /* LoadingView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -148,6 +153,7 @@
 		E3ADD8D924F0976A00ED43A9 /* PetHelp */ = {
 			isa = PBXGroup;
 			children = (
+				E38DB83C24F72E3D0034AA47 /* GoogleService-Info.plist */,
 				E3BA036D24F5D364003E36B4 /* Extensions */,
 				E39FC04F24F49711002C12CB /* Stores */,
 				E39FC04C24F49438002C12CB /* Models */,
@@ -159,7 +165,6 @@
 				E3ADD8DE24F0976C00ED43A9 /* Assets.xcassets */,
 				E3ADD8E324F0976C00ED43A9 /* Info.plist */,
 				E303430B24F43A7000082D1D /* Launch Screen.storyboard */,
-				E30342F624F3EA2C00082D1D /* GoogleService-Info.plist */,
 			);
 			path = PetHelp;
 			sourceTree = "<group>";
@@ -193,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				E3BA037124F5E8AF003E36B4 /* AvatarView.swift */,
+				E38DB84024F741D30034AA47 /* PetListItemView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -226,6 +232,8 @@
 			dependencies = (
 			);
 			name = PetHelp;
+			packageProductDependencies = (
+			);
 			productName = PetHelp;
 			productReference = E3ADD8D724F0976A00ED43A9 /* PetHelp.app */;
 			productType = "com.apple.product-type.application";
@@ -253,6 +261,8 @@
 				Base,
 			);
 			mainGroup = E3ADD8CE24F0976A00ED43A9;
+			packageReferences = (
+			);
 			productRefGroup = E3ADD8D824F0976A00ED43A9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -269,8 +279,8 @@
 			files = (
 				E3ADD8E224F0976C00ED43A9 /* Preview Assets.xcassets in Resources */,
 				E3ADD8DF24F0976C00ED43A9 /* Assets.xcassets in Resources */,
+				E38DB83D24F72E3D0034AA47 /* GoogleService-Info.plist in Resources */,
 				E303430C24F43A7000082D1D /* Launch Screen.storyboard in Resources */,
-				E30342F724F3EA2C00082D1D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,6 +335,7 @@
 			files = (
 				E3A3F87A24F3402B0065E6A7 /* KeyboardHeightPublisher.swift in Sources */,
 				E3259F8424F09B0E00EBE511 /* ButtonSpaced.swift in Sources */,
+				E38DB84124F741D30034AA47 /* PetListItemView.swift in Sources */,
 				E3BA036A24F5D2E1003E36B4 /* Coordinator.swift in Sources */,
 				E3BA036C24F5D2F2003E36B4 /* ImagePicker.swift in Sources */,
 				E3A44A3924F20C2E0079AEAA /* HomeView.swift in Sources */,
@@ -340,6 +351,7 @@
 				E3A3F87C24F3406F0065E6A7 /* UIResponder+Current.swift in Sources */,
 				E3A3F87824F340190065E6A7 /* KeyboardAdaptative.swift in Sources */,
 				E39FC05124F49720002C12CB /* UserStore.swift in Sources */,
+				E38DB83F24F738800034AA47 /* LoadingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,7 +490,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.br.pethelp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.br.PetHelp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -501,7 +513,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.br.pethelp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.br.PetHelp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

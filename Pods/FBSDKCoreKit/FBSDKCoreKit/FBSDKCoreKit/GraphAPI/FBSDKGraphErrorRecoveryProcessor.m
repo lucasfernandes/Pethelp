@@ -101,7 +101,7 @@
                                                                            message:recoverySuggestion
                                                                     preferredStyle:UIAlertControllerStyleAlert];
   for (NSUInteger i = 0; i < recoveryOptionsTitles.count; i++) {
-    NSString *title = [FBSDKTypeUtility array:recoveryOptionsTitles objectAtIndex:i];
+    NSString *title = recoveryOptionsTitles[i];
     UIAlertAction *option = [UIAlertAction actionWithTitle:title
                                                      style:UIAlertActionStyleDefault
                                                    handler:^(UIAlertAction * _Nonnull action) {

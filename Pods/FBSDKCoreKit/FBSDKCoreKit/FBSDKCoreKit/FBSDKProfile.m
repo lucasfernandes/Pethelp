@@ -83,8 +83,8 @@ static FBSDKProfile *g_currentProfile;
     [[self class] cacheProfile:profile];
     NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
 
-    [FBSDKTypeUtility dictionary:userInfo setObject:profile forKey:FBSDKProfileChangeNewKey];
-    [FBSDKTypeUtility dictionary:userInfo setObject:g_currentProfile forKey:FBSDKProfileChangeOldKey];
+    [FBSDKBasicUtility dictionary:userInfo setObject:profile forKey:FBSDKProfileChangeNewKey];
+    [FBSDKBasicUtility dictionary:userInfo setObject:g_currentProfile forKey:FBSDKProfileChangeOldKey];
     g_currentProfile = profile;
     [[NSNotificationCenter defaultCenter] postNotificationName:FBSDKProfileDidChangeNotification
                                                         object:[self class]
@@ -264,8 +264,6 @@ static FBSDKProfile *g_currentProfile;
 
 @implementation FBSDKProfile(Internal)
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 + (void)cacheProfile:(FBSDKProfile *)profile
 {
   NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
@@ -291,7 +289,6 @@ static FBSDKProfile *g_currentProfile;
   }
   return nil;
 }
-#pragma clang diagnostic pop
 
 @end
 

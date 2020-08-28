@@ -57,7 +57,7 @@ static NSMutableArray<FBSDKDeviceLoginManager *> *g_loginManagerInstances;
 - (void)start
 {
   [FBSDKInternalUtility validateAppID];
-  [FBSDKTypeUtility array:g_loginManagerInstances addObject:self];
+  [g_loginManagerInstances addObject:self];
 
   NSDictionary *parameters = @{
                                @"scope": [self.permissions componentsJoinedByString:@","] ?: @"",

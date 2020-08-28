@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>764674345927-3gt2t7256re5l462bvgrr6jmtd33nbte.apps.googleusercontent.com</string>
+	<string>764674345927-kmrrlj3argtd51o67q5a6d6j8bnjmj2j.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.764674345927-3gt2t7256re5l462bvgrr6jmtd33nbte</string>
+	<string>com.googleusercontent.apps.764674345927-kmrrlj3argtd51o67q5a6d6j8bnjmj2j</string>
 	<key>API_KEY</key>
 	<string>AIzaSyCsBcTTBXbpEOHsZF7dcpFbTs3rR_wf_JA</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>PetHelp</string>
+	<string>com.br.PetHelp</string>
 	<key>PROJECT_ID</key>
 	<string>pethelp-e475f</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,7 +29,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:764674345927:ios:cb12592200599d9830e7e2</string>
+	<string>1:764674345927:ios:c390a48b04e8acf630e7e2</string>
 	<key>DATABASE_URL</key>
 	<string>https://pethelp-e475f.firebaseio.com</string>
 </dict>
