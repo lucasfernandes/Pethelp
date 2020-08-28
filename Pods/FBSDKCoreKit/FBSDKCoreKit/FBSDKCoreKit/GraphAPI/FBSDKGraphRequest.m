@@ -128,7 +128,7 @@ FBSDKHTTPMethod FBSDKHTTPMethodDELETE = @"DELETE";
 - (BOOL)hasAttachments
 {
   __block BOOL hasAttachments = NO;
-  [FBSDKTypeUtility dictionary:self.parameters enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+  [self.parameters enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
     if ([FBSDKGraphRequest isAttachment:obj]) {
       hasAttachments = YES;
       *stop = YES;
@@ -190,7 +190,7 @@ FBSDKHTTPMethod FBSDKHTTPMethodDELETE = @"DELETE";
   NSString *debugValue = [FBSDKSettings graphAPIDebugParamValue];
   if (debugValue) {
     NSMutableDictionary *mutableParams = [NSMutableDictionary dictionaryWithDictionary:params];
-    [FBSDKTypeUtility dictionary:mutableParams setObject:debugValue forKey:@"debug"];
+    mutableParams[@"debug"] = debugValue;
     return mutableParams;
   }
 

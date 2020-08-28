@@ -12,7 +12,8 @@ struct BaseView<Content: View>: View {
     private var isNavigationEnabled: Bool
     let content: Content
 
-    init(isNavigationEnabled: Bool = false, @ViewBuilder content: () -> Content) {
+    init(isNavigationEnabled: Bool = false,
+         @ViewBuilder content: () -> Content) {
         self.isNavigationEnabled = isNavigationEnabled
         self.content = content()
     }
@@ -22,11 +23,12 @@ struct BaseView<Content: View>: View {
             VStack {
                 Spacer().frame(height: isNavigationEnabled ? 150 : 50)
                 content
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .padding(.all, 16)
         }
         .background(Color("viewBackground"))
         .edgesIgnoringSafeArea(.all)
+        .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/, 0)
     }
 }

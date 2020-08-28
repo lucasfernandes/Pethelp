@@ -3,38 +3,51 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		23AA5223C90AD984D66BACDB /* Pods_PetHelp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E1F5351E82C6E8CCE33DEB /* Pods_PetHelp.framework */; };
-		E30342F524F3E47600082D1D /* FacebookLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = E30342F424F3E47600082D1D /* FacebookLogin.swift */; };
-		E30342F724F3EA2C00082D1D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E30342F624F3EA2C00082D1D /* GoogleService-Info.plist */; };
+		E303430C24F43A7000082D1D /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E303430B24F43A7000082D1D /* Launch Screen.storyboard */; };
 		E3259F8424F09B0E00EBE511 /* ButtonSpaced.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3259F8324F09B0E00EBE511 /* ButtonSpaced.swift */; };
+		E38DB83D24F72E3D0034AA47 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E38DB83C24F72E3D0034AA47 /* GoogleService-Info.plist */; };
+		E38DB83F24F738800034AA47 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38DB83E24F738800034AA47 /* LoadingView.swift */; };
+		E38DB84124F741D30034AA47 /* PetListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38DB84024F741D30034AA47 /* PetListItemView.swift */; };
+		E39FC04E24F49449002C12CB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39FC04D24F49449002C12CB /* User.swift */; };
+		E39FC05124F49720002C12CB /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39FC05024F49720002C12CB /* UserStore.swift */; };
 		E3A3F87824F340190065E6A7 /* KeyboardAdaptative.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A3F87724F340190065E6A7 /* KeyboardAdaptative.swift */; };
 		E3A3F87A24F3402B0065E6A7 /* KeyboardHeightPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A3F87924F3402B0065E6A7 /* KeyboardHeightPublisher.swift */; };
 		E3A3F87C24F3406F0065E6A7 /* UIResponder+Current.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A3F87B24F3406F0065E6A7 /* UIResponder+Current.swift */; };
-		E3A44A3924F20C2E0079AEAA /* NewAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A44A3824F20C2E0079AEAA /* NewAccountView.swift */; };
+		E3A44A3924F20C2E0079AEAA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A44A3824F20C2E0079AEAA /* HomeView.swift */; };
 		E3A44A3B24F212BC0079AEAA /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A44A3A24F212BC0079AEAA /* BaseView.swift */; };
 		E3ADD8DB24F0976A00ED43A9 /* PetHelpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3ADD8DA24F0976A00ED43A9 /* PetHelpApp.swift */; };
 		E3ADD8DD24F0976A00ED43A9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3ADD8DC24F0976A00ED43A9 /* ContentView.swift */; };
 		E3ADD8DF24F0976C00ED43A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3ADD8DE24F0976C00ED43A9 /* Assets.xcassets */; };
 		E3ADD8E224F0976C00ED43A9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3ADD8E124F0976C00ED43A9 /* Preview Assets.xcassets */; };
+		E3BA036A24F5D2E1003E36B4 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BA036924F5D2E1003E36B4 /* Coordinator.swift */; };
+		E3BA036C24F5D2F2003E36B4 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BA036B24F5D2F2003E36B4 /* ImagePicker.swift */; };
+		E3BA036F24F5D378003E36B4 /* String+getImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BA036E24F5D378003E36B4 /* String+getImage.swift */; };
+		E3BA037224F5E8AF003E36B4 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BA037124F5E8AF003E36B4 /* AvatarView.swift */; };
+		E3BA037424F5EDEB003E36B4 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BA037324F5EDEB003E36B4 /* SettingsView.swift */; };
 		E3EA0EF324F205390020C007 /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EA0EF224F205390020C007 /* RoundedTextField.swift */; };
-		E3FEAF6D24F14E3E00F7EC2D /* BeginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FEAF6C24F14E3E00F7EC2D /* BeginView.swift */; };
+		E3FEAF6D24F14E3E00F7EC2D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FEAF6C24F14E3E00F7EC2D /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2462913B53F4489AA09383E0 /* Pods-PetHelp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetHelp.debug.xcconfig"; path = "Target Support Files/Pods-PetHelp/Pods-PetHelp.debug.xcconfig"; sourceTree = "<group>"; };
 		41CD760006D886CF45A958D7 /* Pods-PetHelp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetHelp.release.xcconfig"; path = "Target Support Files/Pods-PetHelp/Pods-PetHelp.release.xcconfig"; sourceTree = "<group>"; };
 		66E1F5351E82C6E8CCE33DEB /* Pods_PetHelp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetHelp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E30342F424F3E47600082D1D /* FacebookLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookLogin.swift; sourceTree = "<group>"; };
-		E30342F624F3EA2C00082D1D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E303430B24F43A7000082D1D /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		E3259F8324F09B0E00EBE511 /* ButtonSpaced.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSpaced.swift; sourceTree = "<group>"; };
+		E38DB83C24F72E3D0034AA47 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E38DB83E24F738800034AA47 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		E38DB84024F741D30034AA47 /* PetListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetListItemView.swift; sourceTree = "<group>"; };
+		E39FC04D24F49449002C12CB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E39FC05024F49720002C12CB /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		E3A3F87724F340190065E6A7 /* KeyboardAdaptative.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAdaptative.swift; sourceTree = "<group>"; };
 		E3A3F87924F3402B0065E6A7 /* KeyboardHeightPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHeightPublisher.swift; sourceTree = "<group>"; };
 		E3A3F87B24F3406F0065E6A7 /* UIResponder+Current.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+Current.swift"; sourceTree = "<group>"; };
-		E3A44A3824F20C2E0079AEAA /* NewAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAccountView.swift; sourceTree = "<group>"; };
+		E3A44A3824F20C2E0079AEAA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		E3A44A3A24F212BC0079AEAA /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		E3ADD8D724F0976A00ED43A9 /* PetHelp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetHelp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3ADD8DA24F0976A00ED43A9 /* PetHelpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetHelpApp.swift; sourceTree = "<group>"; };
@@ -42,8 +55,13 @@
 		E3ADD8DE24F0976C00ED43A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E3ADD8E124F0976C00ED43A9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E3ADD8E324F0976C00ED43A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E3BA036924F5D2E1003E36B4 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		E3BA036B24F5D2F2003E36B4 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		E3BA036E24F5D378003E36B4 /* String+getImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+getImage.swift"; sourceTree = "<group>"; };
+		E3BA037124F5E8AF003E36B4 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
+		E3BA037324F5EDEB003E36B4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		E3EA0EF224F205390020C007 /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
-		E3FEAF6C24F14E3E00F7EC2D /* BeginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeginView.swift; sourceTree = "<group>"; };
+		E3FEAF6C24F14E3E00F7EC2D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +82,6 @@
 				2462913B53F4489AA09383E0 /* Pods-PetHelp.debug.xcconfig */,
 				41CD760006D886CF45A958D7 /* Pods-PetHelp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -79,12 +96,30 @@
 		E3259F8224F09AC300EBE511 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				E3BA036824F5D2D1003E36B4 /* ImagePicker */,
 				E3A3F87624F33FED0065E6A7 /* Keyboard */,
 				E3259F8324F09B0E00EBE511 /* ButtonSpaced.swift */,
 				E3EA0EF224F205390020C007 /* RoundedTextField.swift */,
 				E3A44A3A24F212BC0079AEAA /* BaseView.swift */,
+				E38DB83E24F738800034AA47 /* LoadingView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		E39FC04C24F49438002C12CB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E39FC04D24F49449002C12CB /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E39FC04F24F49711002C12CB /* Stores */ = {
+			isa = PBXGroup;
+			children = (
+				E39FC05024F49720002C12CB /* UserStore.swift */,
+			);
+			path = Stores;
 			sourceTree = "<group>";
 		};
 		E3A3F87624F33FED0065E6A7 /* Keyboard */ = {
@@ -118,14 +153,18 @@
 		E3ADD8D924F0976A00ED43A9 /* PetHelp */ = {
 			isa = PBXGroup;
 			children = (
-				E30342F624F3EA2C00082D1D /* GoogleService-Info.plist */,
+				E38DB83C24F72E3D0034AA47 /* GoogleService-Info.plist */,
+				E3BA036D24F5D364003E36B4 /* Extensions */,
+				E39FC04F24F49711002C12CB /* Stores */,
+				E39FC04C24F49438002C12CB /* Models */,
 				E3FEAF6B24F14E2C00F7EC2D /* Views */,
 				E3259F8224F09AC300EBE511 /* Components */,
 				E3ADD8DA24F0976A00ED43A9 /* PetHelpApp.swift */,
 				E3ADD8DC24F0976A00ED43A9 /* ContentView.swift */,
+				E3ADD8E024F0976C00ED43A9 /* Preview Content */,
 				E3ADD8DE24F0976C00ED43A9 /* Assets.xcassets */,
 				E3ADD8E324F0976C00ED43A9 /* Info.plist */,
-				E3ADD8E024F0976C00ED43A9 /* Preview Content */,
+				E303430B24F43A7000082D1D /* Launch Screen.storyboard */,
 			);
 			path = PetHelp;
 			sourceTree = "<group>";
@@ -138,12 +177,39 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		E3BA036824F5D2D1003E36B4 /* ImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				E3BA036924F5D2E1003E36B4 /* Coordinator.swift */,
+				E3BA036B24F5D2F2003E36B4 /* ImagePicker.swift */,
+			);
+			path = ImagePicker;
+			sourceTree = "<group>";
+		};
+		E3BA036D24F5D364003E36B4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E3BA036E24F5D378003E36B4 /* String+getImage.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E3BA037024F5E85C003E36B4 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E3BA037124F5E8AF003E36B4 /* AvatarView.swift */,
+				E38DB84024F741D30034AA47 /* PetListItemView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		E3FEAF6B24F14E2C00F7EC2D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E3FEAF6C24F14E3E00F7EC2D /* BeginView.swift */,
-				E3A44A3824F20C2E0079AEAA /* NewAccountView.swift */,
-				E30342F424F3E47600082D1D /* FacebookLogin.swift */,
+				E3BA037024F5E85C003E36B4 /* Components */,
+				E3FEAF6C24F14E3E00F7EC2D /* LoginView.swift */,
+				E3A44A3824F20C2E0079AEAA /* HomeView.swift */,
+				E3BA037324F5EDEB003E36B4 /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -166,6 +232,8 @@
 			dependencies = (
 			);
 			name = PetHelp;
+			packageProductDependencies = (
+			);
 			productName = PetHelp;
 			productReference = E3ADD8D724F0976A00ED43A9 /* PetHelp.app */;
 			productType = "com.apple.product-type.application";
@@ -193,6 +261,8 @@
 				Base,
 			);
 			mainGroup = E3ADD8CE24F0976A00ED43A9;
+			packageReferences = (
+			);
 			productRefGroup = E3ADD8D824F0976A00ED43A9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -209,7 +279,8 @@
 			files = (
 				E3ADD8E224F0976C00ED43A9 /* Preview Assets.xcassets in Resources */,
 				E3ADD8DF24F0976C00ED43A9 /* Assets.xcassets in Resources */,
-				E30342F724F3EA2C00082D1D /* GoogleService-Info.plist in Resources */,
+				E38DB83D24F72E3D0034AA47 /* GoogleService-Info.plist in Resources */,
+				E303430C24F43A7000082D1D /* Launch Screen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,15 +335,23 @@
 			files = (
 				E3A3F87A24F3402B0065E6A7 /* KeyboardHeightPublisher.swift in Sources */,
 				E3259F8424F09B0E00EBE511 /* ButtonSpaced.swift in Sources */,
-				E3A44A3924F20C2E0079AEAA /* NewAccountView.swift in Sources */,
+				E38DB84124F741D30034AA47 /* PetListItemView.swift in Sources */,
+				E3BA036A24F5D2E1003E36B4 /* Coordinator.swift in Sources */,
+				E3BA036C24F5D2F2003E36B4 /* ImagePicker.swift in Sources */,
+				E3A44A3924F20C2E0079AEAA /* HomeView.swift in Sources */,
+				E3BA037424F5EDEB003E36B4 /* SettingsView.swift in Sources */,
+				E3BA037224F5E8AF003E36B4 /* AvatarView.swift in Sources */,
 				E3ADD8DD24F0976A00ED43A9 /* ContentView.swift in Sources */,
-				E30342F524F3E47600082D1D /* FacebookLogin.swift in Sources */,
-				E3FEAF6D24F14E3E00F7EC2D /* BeginView.swift in Sources */,
+				E3FEAF6D24F14E3E00F7EC2D /* LoginView.swift in Sources */,
 				E3A44A3B24F212BC0079AEAA /* BaseView.swift in Sources */,
 				E3EA0EF324F205390020C007 /* RoundedTextField.swift in Sources */,
+				E3BA036F24F5D378003E36B4 /* String+getImage.swift in Sources */,
+				E39FC04E24F49449002C12CB /* User.swift in Sources */,
 				E3ADD8DB24F0976A00ED43A9 /* PetHelpApp.swift in Sources */,
 				E3A3F87C24F3406F0065E6A7 /* UIResponder+Current.swift in Sources */,
 				E3A3F87824F340190065E6A7 /* KeyboardAdaptative.swift in Sources */,
+				E39FC05124F49720002C12CB /* UserStore.swift in Sources */,
+				E38DB83F24F738800034AA47 /* LoadingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,7 +490,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.br.pethelp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.br.PetHelp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -434,7 +513,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.br.pethelp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.br.PetHelp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

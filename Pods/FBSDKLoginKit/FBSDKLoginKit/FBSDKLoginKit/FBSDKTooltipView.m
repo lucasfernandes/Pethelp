@@ -478,8 +478,6 @@ static CGMutablePathRef _createCloseCrossGlyphWithRect(CGRect rect)
   [self layoutSubviewsAndDetermineFrame];
 }
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 - (CGRect)layoutSubviewsAndDetermineFrame
 {
   // Compute the positioning of the arrow.
@@ -544,7 +542,6 @@ static CGMutablePathRef _createCloseCrossGlyphWithRect(CGRect rect)
                     nuxWidth,
                     nuxHeight);
 }
-#pragma clang diagnostic pop
 
 #pragma mark Message & Tagline
 
