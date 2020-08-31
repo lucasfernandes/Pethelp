@@ -8,25 +8,34 @@
 import SwiftUI
 
 struct RoundedTextField: View {
-    var title = "Title"
+    var title = ""
     var placehoder = "Type something"
     let foreground = "textFieldColor"
-    @State private var text = ""
+    @Binding var text: String
+
+    var onEditingChanged: (() -> Void)? = {}
+
     var body: some View {
         VStack(alignment: .leading) {
-            Text(title)
+            if !title.isEmpty {
+                Text(title)
                 .foregroundColor(Color(foreground))
                 .font(.system(size: 12))
-            TextField(placehoder, text: $text)
+            }
+            TextField(placehoder, text: $text, onEditingChanged: { _ in
+                onEditingChanged!()
+            })
                 .font(Font.system(size: 16, weight: .medium))
                 .padding(12)
-                .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color.white))
+                .background(
+                    RoundedRectangle(cornerRadius: 10)
+                        .foregroundColor(Color("textFieldBackground")))
         }
     }
 }
 
 struct RoundedTextField_Previews: PreviewProvider {
     static var previews: some View {
-        RoundedTextField()
+        RoundedTextField(text: .constant(""))
     }
 }

@@ -9,6 +9,9 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject var userStore: UserStore
+    @State var newIsPresented = false
+
+
     let list = [1, 2, 3]
     let emptyList: [Int] = []
 
@@ -33,11 +36,15 @@ struct HomeView: View {
             .navigationBarTitle("Minha lista")
             .navigationBarBackButtonHidden(true)
             .navigationBarItems(leading: AvatarView(), trailing: Button(action: {
-                userStore.logout()
+                newIsPresented = true
             }, label: {
                 Image(systemName: "plus")
                     .foregroundColor(Color("lightBlue"))
             }))
+        }
+
+        .sheet(isPresented: $newIsPresented) {
+            MapView()
         }
     }
 }

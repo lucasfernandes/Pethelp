@@ -7,8 +7,8 @@ target 'PetHelp' do
 
   # Pods for PetHelp
 
-  pod 'Firebase/Auth'
   pod 'FacebookCore'
   pod 'FacebookLogin'
   pod 'FacebookShare'
+  pod 'Firebase/Auth'
 end
