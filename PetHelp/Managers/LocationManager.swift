@@ -76,11 +76,14 @@ extension LocationManager {
 
             for item in response.mapItems {
                 print(item.name ?? "No name found")
-                self.annotations.append(Location(
-                                    title: item.name ?? "No name found",
-                                    coordinate: CLLocationCoordinate2D(
-                                        latitude: item.placemark.coordinate.latitude,
-                                        longitude: item.placemark.coordinate.latitude)))
+
+                DispatchQueue.main.async {
+                    self.annotations.append(Location(
+                                                title: item.name ?? "No name found",
+                                                coordinate: CLLocationCoordinate2D(
+                                                    latitude: item.placemark.coordinate.latitude,
+                                                    longitude: item.placemark.coordinate.longitude)))
+                }
             }
         }
     }

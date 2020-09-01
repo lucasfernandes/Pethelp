@@ -21,13 +21,19 @@ struct SearchResultsListView: View {
                         selectedFragment = result.title
                         (onSelect ?? {})()
                     }) {
-                        Divider().background(Color("listItemLightGray")).padding(.bottom, 10)
-                        Text(result.title)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .font(.body)
-                        Text(result.subtitle)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .font(.caption)
+                        VStack {
+                            if results.first != result {
+                                Divider().background(Color("listItemLightGray")).padding(.bottom, 10)
+                            }
+                            Text(result.title)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .font(.body)
+                                .foregroundColor(.primary)
+                            Text(result.subtitle)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                        }
                     }
                 }
                 .padding(.horizontal)

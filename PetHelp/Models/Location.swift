@@ -17,8 +17,22 @@ struct Location: Identifiable {
 extension Location {
     static func getLocation() -> [Location] {
         return [
-            Location(title: "Iguatemi Rio Preto", coordinate: CLLocationCoordinate2D(latitude: -20.8664543, longitude: -49.4144121)),
-            Location(title: "Box 5 (Verme)", coordinate: CLLocationCoordinate2D(latitude: -20.80963, longitude: -49.3962918))
+            Location(title: "shop", coordinate: CLLocationCoordinate2D(latitude: -20.8355829, longitude: -49.4005878))
         ]
+    }
+
+    static func makeLocation(locations: [Location]) -> [Location] {
+        var newLocations = locations
+        newLocations.append(
+            Location(title: "Box 5 (Verme)", coordinate: CLLocationCoordinate2D(latitude: -20.8271063, longitude: -49.3889255))
+        )
+
+        return newLocations
+    }
+}
+
+extension Array {
+    mutating func appendLocation(location: Location) {
+        self.append(location as! Element)
     }
 }

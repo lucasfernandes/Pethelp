@@ -9,18 +9,17 @@ import SwiftUI
 import FBSDKCoreKit
 
 struct ContentView: View {
-//    var userStore = UserStore()
+    var userStore = UserStore()
     var body: some View {
-        MapView()
-//        LoginView()
-//            .onOpenURL(perform: { url in
-//                ApplicationDelegate.shared.application(
-//                    UIApplication.shared,
-//                    open: url,
-//                    sourceApplication: nil,
-//                    annotation: UIApplication.OpenURLOptionsKey.annotation)
-//            })
-//            .environmentObject(userStore)
+        LoginView()
+            .onOpenURL(perform: { url in
+                ApplicationDelegate.shared.application(
+                    UIApplication.shared,
+                    open: url,
+                    sourceApplication: nil,
+                    annotation: UIApplication.OpenURLOptionsKey.annotation)
+            })
+            .environmentObject(userStore)
     }
 }
 
