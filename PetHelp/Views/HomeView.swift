@@ -30,10 +30,11 @@ struct HomeView: View {
                         Text("Nenhum item na lista")
                     }
                     .frame(maxHeight: .infinity, alignment: .center)
+                    .padding(.top, 100)
                 }
             }
             .padding(.horizontal, 16)
-            .navigationBarTitle("Minha lista")
+            .navigationBarTitle("Minha lista", displayMode: .inline)
             .navigationBarBackButtonHidden(true)
             .navigationBarItems(leading: AvatarView(), trailing: Button(action: {
                 newIsPresented = true
@@ -43,9 +44,11 @@ struct HomeView: View {
             }))
         }
 
-        .sheet(isPresented: $newIsPresented) {
-            MapView()
-        }
+        NavigationLink(destination: MapView(), isActive: $newIsPresented) {}
+
+//        .sheet(isPresented: $newIsPresented) {
+//            MapView()
+//        }
     }
 }
 

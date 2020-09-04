@@ -25,10 +25,14 @@ struct RoundedTextField: View {
             TextField(placehoder, text: $text, onEditingChanged: { _ in
                 onEditingChanged!()
             })
+//                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .autocapitalization(.none)
+                .disableAutocorrection(true)
                 .font(Font.system(size: 16, weight: .medium))
                 .padding(12)
                 .background(
                     RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.secondary)
                         .foregroundColor(Color("textFieldBackground")))
         }
     }

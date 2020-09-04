@@ -7,29 +7,32 @@
 
 import SwiftUI
 import MapKit
+import BottomSheet
 
 struct MapView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject private var locationManager = LocationManager()
     @State private var search = ""
     @State private var trackingMode = MapUserTrackingMode.follow
-    @State var annotations: [Location] = []
+    @State var viewState: BottomSheetViewState = .peek
+
 
     var body: some View {
-        NavigationView {
+        //        NavigationView {
 
-            ZStack(alignment: .top) {
-                Map(
-                    coordinateRegion: $locationManager.currentLocation,
-                    interactionModes: .all,
-                    showsUserLocation: true,
-                    userTrackingMode: $trackingMode,
-                    annotationItems: $locationManager.annotations.wrappedValue) { location in
-                    MapAnnotation(coordinate: location.coordinate) {
-                        MapAnnotationView(name: location.title, image: Image("dog"))
-                    }
+        ZStack(alignment: .top) {
+            Map(
+                coordinateRegion: $locationManager.currentLocation,
+                interactionModes: .all,
+                showsUserLocation: true,
+                userTrackingMode: $trackingMode,
+                annotationItems: $locationManager.annotations.wrappedValue) { location in
+                MapAnnotation(coordinate: location.coordinate) {
+                    MapAnnotationView(name: location.title, image: Image("dog"))
                 }
+            }
 
+            BottomSheet(viewState: self.$viewState) {
                 VStack {
                     ZStack {
                         RoundedTextField(placehoder: "Procure um local", text: $search, onEditingChanged: {
@@ -37,8 +40,8 @@ struct MapView: View {
                                 locationManager.autoCompletedSearch(text: $search.wrappedValue)
                             }
                         })
-                            .padding()
-                            .offset(y: 44)
+                        .padding()
+                        //                            .offset(y: 84)
 
 
                         if $search.wrappedValue.isEmpty == false {
@@ -48,7 +51,7 @@ struct MapView: View {
                                 Image(systemName: "xmark.circle.fill")
                             }
                             .frame(maxWidth: .infinity, alignment: .trailing)
-                            .offset(y: 44)
+                            //                                .offset(y: 84)
                             .padding(.trailing, 28)
                             .foregroundColor(.red)
                         }
@@ -60,21 +63,28 @@ struct MapView: View {
                         onSelect: {
                             self.search = ""
                             self.locationManager.searchResults = []
+                            self.viewState = .peek
                         })
                         .frame(maxWidth: .infinity, maxHeight: CGFloat($locationManager.searchResults.wrappedValue.count) * 85)
-                            .padding(.horizontal, 16)
-                            .padding(.top, 30)
+//                        .padding(.horizontal, 8)
+//                        .padding(.top, 30)
+
+                    Spacer()
+
                 }
+                .edgesIgnoringSafeArea(.vertical)
             }
-            .edgesIgnoringSafeArea(.all)
-            .navigationBarTitle("Incluir novo", displayMode: .inline)
-            .navigationBarItems(trailing: Button(action: {
-                self.presentationMode.wrappedValue.dismiss()
-            }) {
-                Image(systemName: "xmark.circle")
-                    .font(Font.system(.headline))
-            })
+
         }
+        .edgesIgnoringSafeArea(.all)
+        .navigationBarTitle("Incluir novo", displayMode: .inline)
+        //            .navigationBarItems(trailing: Button(action: {
+        //                self.presentationMode.wrappedValue.dismiss()
+        //            }) {
+        //                Image(systemName: "xmark.circle")
+        //                    .font(Font.system(.headline))
+        //            })
+        //        }
     }
 }
 

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,9 @@
 		E3580C9F24FC161000BED59C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3580C9E24FC161000BED59C /* GoogleService-Info.plist */; };
 		E3580CA124FC1B8800BED59C /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3580CA024FC1B8800BED59C /* Location.swift */; };
 		E3580CA324FC1FD100BED59C /* MapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3580CA224FC1FD100BED59C /* MapAnnotationView.swift */; };
+		E3785EF424FF24E900DC9567 /* SlideOverCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3785EF324FF24E900DC9567 /* SlideOverCard.swift */; };
+		E3785EF724FF25C100DC9567 /* Handle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3785EF624FF25C100DC9567 /* Handle.swift */; };
+		E3785EFA24FF305200DC9567 /* BottomSheet in Frameworks */ = {isa = PBXBuildFile; productRef = E3785EF924FF305200DC9567 /* BottomSheet */; };
 		E38DB83F24F738800034AA47 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38DB83E24F738800034AA47 /* LoadingView.swift */; };
 		E38DB84124F741D30034AA47 /* PetListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38DB84024F741D30034AA47 /* PetListItemView.swift */; };
 		E39FC04E24F49449002C12CB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39FC04D24F49449002C12CB /* User.swift */; };
@@ -48,6 +51,8 @@
 		E3580C9E24FC161000BED59C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E3580CA024FC1B8800BED59C /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		E3580CA224FC1FD100BED59C /* MapAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotationView.swift; sourceTree = "<group>"; };
+		E3785EF324FF24E900DC9567 /* SlideOverCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideOverCard.swift; sourceTree = "<group>"; };
+		E3785EF624FF25C100DC9567 /* Handle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Handle.swift; sourceTree = "<group>"; };
 		E38DB83E24F738800034AA47 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		E38DB84024F741D30034AA47 /* PetListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetListItemView.swift; sourceTree = "<group>"; };
 		E39FC04D24F49449002C12CB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -80,6 +85,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				23AA5223C90AD984D66BACDB /* Pods_PetHelp.framework in Frameworks */,
+				E3785EFA24FF305200DC9567 /* BottomSheet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,8 +118,18 @@
 				E3EA0EF224F205390020C007 /* RoundedTextField.swift */,
 				E3A44A3A24F212BC0079AEAA /* BaseView.swift */,
 				E38DB83E24F738800034AA47 /* LoadingView.swift */,
+				E3785EF524FF259300DC9567 /* CustomSheet */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		E3785EF524FF259300DC9567 /* CustomSheet */ = {
+			isa = PBXGroup;
+			children = (
+				E3785EF324FF24E900DC9567 /* SlideOverCard.swift */,
+				E3785EF624FF25C100DC9567 /* Handle.swift */,
+			);
+			path = CustomSheet;
 			sourceTree = "<group>";
 		};
 		E39FC04C24F49438002C12CB /* Models */ = {
@@ -256,6 +272,7 @@
 			);
 			name = PetHelp;
 			packageProductDependencies = (
+				E3785EF924FF305200DC9567 /* BottomSheet */,
 			);
 			productName = PetHelp;
 			productReference = E3ADD8D724F0976A00ED43A9 /* PetHelp.app */;
@@ -285,6 +302,7 @@
 			);
 			mainGroup = E3ADD8CE24F0976A00ED43A9;
 			packageReferences = (
+				E3785EF824FF305200DC9567 /* XCRemoteSwiftPackageReference "BottomSheet" */,
 			);
 			productRefGroup = E3ADD8D824F0976A00ED43A9 /* Products */;
 			projectDirPath = "";
@@ -361,6 +379,7 @@
 				E38DB84124F741D30034AA47 /* PetListItemView.swift in Sources */,
 				E3BA036A24F5D2E1003E36B4 /* Coordinator.swift in Sources */,
 				E3BA036C24F5D2F2003E36B4 /* ImagePicker.swift in Sources */,
+				E3785EF724FF25C100DC9567 /* Handle.swift in Sources */,
 				E3A44A3924F20C2E0079AEAA /* HomeView.swift in Sources */,
 				E3BA037424F5EDEB003E36B4 /* SettingsView.swift in Sources */,
 				E3BA037224F5E8AF003E36B4 /* AvatarView.swift in Sources */,
@@ -375,6 +394,7 @@
 				E3ADD8DB24F0976A00ED43A9 /* PetHelpApp.swift in Sources */,
 				E3A3F87C24F3406F0065E6A7 /* UIResponder+Current.swift in Sources */,
 				E3A3F87824F340190065E6A7 /* KeyboardAdaptative.swift in Sources */,
+				E3785EF424FF24E900DC9567 /* SlideOverCard.swift in Sources */,
 				E3D3CE3224F9C71900A59D19 /* LocationManager.swift in Sources */,
 				E3D3CE2B24F9BF9200A59D19 /* MapView.swift in Sources */,
 				E333CCA624FC38EE004BACC7 /* SearchResultsListView.swift in Sources */,
@@ -574,6 +594,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E3785EF824FF305200DC9567 /* XCRemoteSwiftPackageReference "BottomSheet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tmn/BottomSheet";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E3785EF924FF305200DC9567 /* BottomSheet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E3785EF824FF305200DC9567 /* XCRemoteSwiftPackageReference "BottomSheet" */;
+			productName = BottomSheet;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E3ADD8CF24F0976A00ED43A9 /* Project object */;
 }

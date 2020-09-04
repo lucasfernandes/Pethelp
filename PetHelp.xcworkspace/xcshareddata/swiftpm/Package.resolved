@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "BottomSheet",
+        "repositoryURL": "https://github.com/tmn/BottomSheet",
+        "state": {
+          "branch": null,
+          "revision": "c28c2c6cc6f3a6f95b8489991d2c1cd85823de06",
+          "version": "0.0.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

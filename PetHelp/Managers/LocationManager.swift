@@ -7,6 +7,7 @@
 
 import Foundation
 import MapKit
+import CoreLocation
 
 class LocationManager: NSObject, ObservableObject {
     private let locationManager = CLLocationManager()
@@ -75,7 +76,11 @@ extension LocationManager {
             }
 
             for item in response.mapItems {
-                print(item.name ?? "No name found")
+                let placemark = item.placemark
+                print("\(placemark.thoroughfare!), \(placemark.subThoroughfare!) - \(placemark.subLocality!)")
+                print("\(placemark.locality!) - \(placemark.administrativeArea!)")
+                print("\(placemark.country!)")
+                print(placemark.postalCode!)
 
                 DispatchQueue.main.async {
                     self.annotations.append(Location(

@@ -38,10 +38,10 @@ struct SearchResultsListView: View {
                 }
                 .padding(.horizontal)
             }
-            .padding(.top, 20)
+//            .padding(.top, 20)
         }
         .background(Color(UIColor.systemBackground))
-        .cornerRadius(10)
+//        .cornerRadius(10)
     }
 }
 
