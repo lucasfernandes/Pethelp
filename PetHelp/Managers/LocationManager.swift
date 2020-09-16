@@ -14,12 +14,15 @@ class LocationManager: NSObject, ObservableObject {
     private let completer: MKLocalSearchCompleter = MKLocalSearchCompleter()
 
     @Published var location: CLLocation? = nil
-    @Published var currentLocation = MKCoordinateRegion()
+    @Published var region = MKCoordinateRegion()
     @Published var searchResults: [MKLocalSearchCompletion] = []
     @Published var annotations: [Location] = []
+    @Published var locations: [MKPointAnnotation] = []
     @Published var selectedFragment: String = "" {
         didSet {
-            self.search(text: selectedFragment)
+            selectedFragment.isEmpty
+                ? searchResults = []
+                : self.search(text: selectedFragment)
         }
     }
 
@@ -33,7 +36,7 @@ class LocationManager: NSObject, ObservableObject {
         self.locationManager.startUpdatingLocation()
 
         self.completer.delegate = self
-        self.completer.region = self.currentLocation
+        self.completer.region = self.region
 
         self.getCurrentLocation()
     }
@@ -53,19 +56,23 @@ extension LocationManager: CLLocationManagerDelegate {
 }
 
 extension LocationManager {
+    func makeRegion(coordinate: CLLocationCoordinate2D) -> MKCoordinateRegion {
+        return MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
+    }
+
     func getCurrentLocation() {
 
         guard let coordinate = locationManager.location?.coordinate else {
             return
         }
 
-        currentLocation = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
+        region = makeRegion(coordinate: coordinate)
     }
 
     func search(text: String) {
         let searchRequest = MKLocalSearch.Request()
         searchRequest.naturalLanguageQuery = text
-        searchRequest.region = self.currentLocation
+        searchRequest.region = self.region
 
         let search = MKLocalSearch(request: searchRequest)
 
@@ -76,18 +83,17 @@ extension LocationManager {
             }
 
             for item in response.mapItems {
-                let placemark = item.placemark
-                print("\(placemark.thoroughfare!), \(placemark.subThoroughfare!) - \(placemark.subLocality!)")
-                print("\(placemark.locality!) - \(placemark.administrativeArea!)")
-                print("\(placemark.country!)")
-                print(placemark.postalCode!)
-
                 DispatchQueue.main.async {
                     self.annotations.append(Location(
                                                 title: item.name ?? "No name found",
                                                 coordinate: CLLocationCoordinate2D(
                                                     latitude: item.placemark.coordinate.latitude,
-                                                    longitude: item.placemark.coordinate.longitude)))
+                                                    longitude: item.placemark.coordinate.longitude),
+                                                placemark: item.placemark))
+
+                    let newLocation = MKPointAnnotation()
+                    newLocation.coordinate = item.placemark.coordinate
+                    self.locations.append(newLocation)
                 }
             }
         }

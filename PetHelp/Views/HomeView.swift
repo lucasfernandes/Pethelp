@@ -44,7 +44,7 @@ struct HomeView: View {
             }))
         }
 
-        NavigationLink(destination: MapView(), isActive: $newIsPresented) {}
+//        NavigationLink(destination: MapView(), isActive: $newIsPresented) {}
 
 //        .sheet(isPresented: $newIsPresented) {
 //            MapView()

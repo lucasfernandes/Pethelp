@@ -7,11 +7,11 @@
 
 import SwiftUI
 import FBSDKCoreKit
+import MapKit
 
 struct ContentView: View {
     var userStore = UserStore()
     var body: some View {
-        MapView()
 //        LoginView()
 //            .onOpenURL(perform: { url in
 //                ApplicationDelegate.shared.application(
@@ -21,6 +21,8 @@ struct ContentView: View {
 //                    annotation: UIApplication.OpenURLOptionsKey.annotation)
 //            })
 //            .environmentObject(userStore)
+
+        LocationsView()
     }
 }
 

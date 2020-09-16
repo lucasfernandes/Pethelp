@@ -10,18 +10,27 @@ import SwiftUI
 struct MapAnnotationView: View {
     var name: String
     var image: Image
+    @State var size: CGFloat = 20
+
     var body: some View {
         VStack {
-            image
-                .resizable(capInsets: EdgeInsets(), resizingMode: .stretch)
-                .frame(width: 30, height: 30, alignment: .center)
-                .clipShape(Circle())
-                .overlay(Circle().stroke(Color("lightBlue"), lineWidth: 2))
-            Text(name)
-                .font(.caption)
-                .fontWeight(.semibold)
-                .foregroundColor(Color("lightBlue"))
+            Button(action: {
+                size = $size.wrappedValue == 20 ? 60 : 20
+                print("TAPPED =====>")
+            }, label: {
+                image
+                    .resizable(capInsets: EdgeInsets(), resizingMode: .stretch)
+                    .frame(width: $size.wrappedValue, height: $size.wrappedValue, alignment: .center)
+                    .clipShape(Circle())
+                    .overlay(Circle().stroke(Color.white, lineWidth: 2))
+                Text(name)
+                    .font(.caption)
+                    .fontWeight(.semibold)
+                    .foregroundColor(.primary)
+            })
+
         }
+        .shadow(radius: 5)
     }
 }
 

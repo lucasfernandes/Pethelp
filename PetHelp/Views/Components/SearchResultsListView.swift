@@ -22,26 +22,31 @@ struct SearchResultsListView: View {
                         (onSelect ?? {})()
                     }) {
                         VStack {
-                            if results.first != result {
-                                Divider().background(Color("listItemLightGray")).padding(.bottom, 10)
+                            HStack {
+                                Image(systemName: "mappin.circle.fill")
+                                    .resizable()
+                                    .frame(width: 36, height: 36)
+                                    .foregroundColor(Color("searchListCallout"))
+                                    .padding(.trailing)
+                                VStack {
+                                    Text(result.title)
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                        .font(.title3)
+                                        .foregroundColor(.primary)
+                                    Text(result.subtitle)
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                        .font(.caption)
+                                        .foregroundColor(.secondary)
+                                }
                             }
-                            Text(result.title)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .font(.body)
-                                .foregroundColor(.primary)
-                            Text(result.subtitle)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .font(.caption)
-                                .foregroundColor(.secondary)
+                            Divider().background(Color("listItemOpaqueLightGray")).padding(.bottom, 10)
                         }
                     }
                 }
                 .padding(.horizontal)
             }
-//            .padding(.top, 20)
+            Spacer()
         }
-        .background(Color(UIColor.systemBackground))
-//        .cornerRadius(10)
     }
 }
 
