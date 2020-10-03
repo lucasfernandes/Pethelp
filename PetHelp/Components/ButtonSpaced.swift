@@ -32,16 +32,16 @@ struct ButtonSpaced: View {
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 15)
                     .padding(.horizontal, 50)
-                    .foregroundColor(Color("extraDark"))
+                    .foregroundColor(Color("buttonPrimaryForeground"))
                     .font(.system(size: 16, weight: .semibold))
                     .overlay(
                         RoundedRectangle(cornerRadius: 26.5)
-                            .stroke(Color.white, lineWidth: 2)
-                            .shadow(color: Color.gray, radius: 3, x: 2, y: 2)
+                            .stroke(Color("buttonSpacedPrimary"), lineWidth: 2)
+                            .shadow(color: Color("buttonSpacedSecondary"), radius: 3, x: 2, y: 2)
                             .clipShape(
                                 RoundedRectangle(cornerRadius: 26.5)
                             )
-                            .shadow(color: Color.white, radius: 2, x: -2, y: -2)
+                            .shadow(color: Color("buttonSpacedPrimary"), radius: 2, x: -2, y: -2)
                             .clipShape(
                                 RoundedRectangle(cornerRadius: 26.5)
                             )

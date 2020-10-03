@@ -10,5 +10,11 @@ target 'PetHelp' do
   pod 'FacebookCore'
   pod 'FacebookLogin'
   pod 'FacebookShare'
+  pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
+  pod 'FirebaseFirestoreSwift'
+  pod 'TLCustomMask'
+  pod 'SwiftLint', '~> 0.27'
 end

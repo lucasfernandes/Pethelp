@@ -12,7 +12,7 @@ struct SearchBar: View {
     var onEditingChanged: (() -> Void) = {}
     var onFocus: (() -> Void) = {}
     var onBlur: (() -> Void) = {}
-
+    var onCleanText: (() -> Void) = {}
     @Binding var text: String
 
     func performChanges(isEditing: Bool) {
@@ -36,6 +36,7 @@ struct SearchBar: View {
                     .onTapGesture {
                         withAnimation {
                             self.text = ""
+                            self.onCleanText()
                         }
                     }
             }

@@ -11,11 +11,11 @@ import FBSDKLoginKit
 import FBSDKCoreKit
 
 class UserStore: ObservableObject {
-    @Published var user: User? = nil
+    @Published var user: User?
     @Published var hasUserInfo: Bool = false
     @Published var manager = LoginManager()
     @Published var logged: Bool = false
-    @Published var failure: Error? = nil
+    @Published var failure: Error?
     @Published var isLoading: Bool = false
 
     func toogleLoading() {
@@ -26,19 +26,18 @@ class UserStore: ObservableObject {
         self.toogleLoading()
 
         if logged {
-            self.getUser()
+            self.logout()
             return
         }
 
         self.manager.logIn(permissions: ["public_profile", "email"], from: nil) { (result, error) in
             if error != nil {
                 self.failure = error!
-                self.logout()
                 return
-            } else if result!.isCancelled {
-                self.logout()
-            } else {
-                self.logged = AccessToken.isCurrentAccessTokenActive
+            }
+
+            if !result!.isCancelled {
+                self.logged = true
                 self.getUser()
             }
         }

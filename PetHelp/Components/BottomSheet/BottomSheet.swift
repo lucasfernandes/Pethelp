@@ -12,7 +12,7 @@ public struct BottomSheet<Content>: View where Content: View {
     @EnvironmentObject var keyboardState: KeyboardState
     @GestureState private var gestureTranslation: CGFloat = 0
     @Binding private var viewState: BottomSheetViewState
-
+    private var showIndicator: Bool
     private var content: Content
     private var peekHeight: CGFloat = UIScreen.main.bounds.height * 0.175
     private var halfHeight: CGFloat = UIScreen.main.bounds.height * 0.47
@@ -58,21 +58,25 @@ public struct BottomSheet<Content>: View where Content: View {
         }
     }
 
-    public init(viewState: Binding<BottomSheetViewState>, @ViewBuilder content: () -> Content) {
+    public init(viewState: Binding<BottomSheetViewState>, showIndicator: Bool = true, @ViewBuilder content: () -> Content) {
         self.content = content()
+        self.showIndicator = showIndicator
         self._viewState = viewState
     }
 
     public var body: some View {
         VStack(spacing: 0) {
-            BottomSheetDragIndicator()
-                .padding(.top, 6)
-                .padding(.bottom, 8)
+            if showIndicator {
+                BottomSheetDragIndicator()
+                    .padding(.top, 6)
+                    .padding(.bottom, 8)
+            }
 
             self.content
         }
         .frame(minHeight: peekHeight, maxHeight: fullHeight, alignment: .top)
         .background(Color("sheetBackground"))
+//        .blur(radius: 0.5)
         .cornerRadius(6)
         .shadow(color: Color("sheetShadow"), radius: 10, x: 0, y: 0)
         .offset(y: max(self.offset + self.gestureTranslation, 0))

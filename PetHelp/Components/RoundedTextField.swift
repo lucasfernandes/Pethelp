@@ -11,6 +11,7 @@ struct RoundedTextField: View {
     var title = ""
     var placehoder = "Type something"
     let foreground = "textFieldColor"
+    let numberOfLInes = 1
     @Binding var text: String
 
     var onEditingChanged: (() -> Void)? = {}
@@ -25,7 +26,6 @@ struct RoundedTextField: View {
             TextField(placehoder, text: $text, onEditingChanged: { _ in
                 onEditingChanged!()
             })
-//                .textFieldStyle(RoundedBorderTextFieldStyle())
                 .autocapitalization(.none)
                 .disableAutocorrection(true)
                 .font(Font.system(size: 16, weight: .medium))

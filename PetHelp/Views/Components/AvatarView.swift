@@ -17,7 +17,7 @@ struct AvatarView: View {
         }, label: {
             userStore.user?.picture.data.url.getImage().renderingMode(.original)
                 .resizable(capInsets: EdgeInsets(), resizingMode: .stretch)
-                .frame(width: 30, height: 30, alignment: .center)
+                .frame(width: 45, height: 45, alignment: .center)
                 .clipShape(Circle())
                 .overlay(Circle().stroke(Color("lightBlue"), lineWidth: 2))
         })

@@ -8,11 +8,11 @@
 import Foundation
 import MapKit
 
-struct Location: Identifiable {
-    let id = UUID()
-    let title: String
-    let coordinate: CLLocationCoordinate2D
-    let placemark: MKPlacemark
+public struct Location: Identifiable {
+    public var id: String
+    public var title: String
+    public var coordinate: CLLocationCoordinate2D
+    public var place: MKPlacemark
 }
 
 extension Array {

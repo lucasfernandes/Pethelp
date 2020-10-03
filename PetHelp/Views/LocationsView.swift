@@ -10,29 +10,40 @@ import MapKit
 
 struct LocationsView: View {
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var userStore: UserStore
     @ObservedObject private var locationManager = LocationManager()
     @State private var search = ""
     //    @State private var trackingMode = MapUserTrackingMode.follow
-    @State var viewState: BottomSheetViewState = .peek
-    @State var viewPetsState: BottomSheetViewState = .peek
+    @State var viewState: BottomSheetViewState = .half
+    @State var viewPetsState: BottomSheetViewState = .closed
+    @State var viewStateLocationFound: BottomSheetViewState = .closed
+    @State var newPetPresented = false
     @State private var centerCoordinate = CLLocationCoordinate2D()
     @State private var locations = [MKPointAnnotation]()
-    @State private var selectedLocation: CLLocationCoordinate2D? = nil
+    @State private var selectedLocation: CLLocationCoordinate2D?
+    @State private var locationFound: Location?
+    @State private var selectedPlace: MKPointAnnotation?
+    @State var showingPlaceDetails = false
+
+    let list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] // list of pets
 
     var keyboardState = KeyboardState()
 
     var body: some View {
-        ZStack {
+        ZStack(alignment: .topLeading) {
             MapView(centerCoordinate: $centerCoordinate,
                     selectedLocation: $selectedLocation,
+                    selectedPlace: $selectedPlace,
+                    showingPlaceDetails: $showingPlaceDetails,
                     annotations: locations,
                     region: locationManager.region)
                 .edgesIgnoringSafeArea(.all)
+            AvatarView().offset(x: 16, y: 30)
 
             ZStack {
                 BottomSheet(viewState: self.$viewState) {
                     VStack {
-                        SearchBar(placeholder: "Procure o local",
+                        SearchBar(placeholder: NSLocalizedString("locations_searchbar", comment: ""),
                                   onEditingChanged: {
                                     if $search.wrappedValue.count > 3 {
                                         locationManager.autoCompletedSearch(text: $search.wrappedValue)
@@ -41,60 +52,90 @@ struct LocationsView: View {
                                   onFocus: {
                                     self.viewState = .full
                                   },
-                                  onBlur: {},
+                                  onCleanText: {
+                                    self.locationManager.searchResults = []
+                                  },
                                   text: $search)
                             .padding(.horizontal, 10)
-
 
                         VStack {
                             switch $viewState.wrappedValue {
                             case .full, .half:
                                 VStack(alignment: .leading) {
-                                    Text("Opções")
-                                        .font(Font.subheadline.bold())
-                                        .foregroundColor(.gray)
-                                        .padding(.leading, 10)
-                                        .padding(.bottom, -2)
-                                    Divider()
-                                        .background(Color.gray)
-                                        .padding(.leading, 10)
-                                    HStack {
-                                        ButtonCircle(title: "Lista", subtitle: "de pets", iconName: "list.number", onTouch: {
-                                            print("adding new one!")
-                                        })
+                                    if $locationManager.searchResults.wrappedValue.isEmpty {
+                                        Text("locations_options")
+                                            .font(Font.subheadline.bold())
+                                            .foregroundColor(.gray)
+                                            .padding(.leading, 10)
+                                            .padding(.bottom, -2)
+                                        Divider()
+                                            .background(Color.gray)
+                                            .padding(.leading, 10)
+                                        HStack {
+                                            ButtonCircle(
+                                                title: NSLocalizedString(
+                                                    "locations_button_list_title",
+                                                    comment: ""
+                                                ),
+                                                subtitle: NSLocalizedString(
+                                                    "locations_button_list_description",
+                                                    comment: ""),
+                                                iconName: "list.number",
+                                                onTouch: {
+                                                    hideKeyboard()
+                                                    viewState = .closed
+                                                    viewPetsState = .full
+                                                })
 
-                                        ButtonCircle(title: "Adicionar", subtitle: "novo pet", onTouch: {
-                                            print("adding new one!")
-                                        })
+                                            ButtonCircle(
+                                                title: NSLocalizedString(
+                                                    "locations_button_add_title",
+                                                    comment: ""),
+                                                subtitle: NSLocalizedString(
+                                                    "locations_button_add_description",
+                                                    comment: ""),
+                                                onTouch: {
+                                                    hideKeyboard()
+                                                    print("adding new one!")
+                                                    newPetPresented = true
+                                                })
 
-                                    }
-                                    .padding(.top, 10)
-                                    .frame(alignment: .top)
-                                }
-
-                                if $locationManager.searchResults.wrappedValue.isEmpty {
-                                    AnnotationsListView(
-                                        annotations: $locationManager.annotations,
-                                        selectedLocation: $selectedLocation,
-                                        onSelect: {
-                                            self.selectedLocation = nil
-                                            self.viewState = .peek
                                         }
-                                    )
-                                    .frame(alignment: .top)
-                                    .animation(.easeInOut(duration: 0.2))
-                                } else {
-                                    SearchResultsListView(
-                                        results: $locationManager.searchResults,
-                                        selectedFragment: $locationManager.selectedFragment,
-                                        onSelect: {
-                                            self.search = ""
-                                            self.locationManager.searchResults = []
-                                            self.viewState = .peek
-                                        })
+                                        .padding(.top, 10)
                                         .frame(alignment: .top)
-                                        .animation(.easeInOut(duration: 0.2))
+
+                                    } else {
+                                        SearchResultsListView(
+                                            results: $locationManager.searchResults,
+                                            selectedFragment: $locationManager.selectedFragment,
+                                            onSelect: {
+                                                self.search = ""
+                                                self.locationManager.searchResults = []
+                                                self.viewState = .peek
+
+//                                                if $locationManager.locationFound.wrappedValue != nil {
+//                                                    self.selectedLocation = $locationManager.annotations.wrappedValue.last?.coordinate
+////                                                    self.centerCoordinate = $locationManager.locationFound.wrappedValue!.coordinate
+//                                                }
+                                                hideKeyboard()
+                                            })
+                                            .frame(alignment: .top)
+                                            .animation(.easeInOut(duration: 0.2))
+                                    }
                                 }
+
+//                                                            if $locationManager.searchResults.wrappedValue.isEmpty {
+//                                                                AnnotationsListView(
+//                                                                    annotations: $locationManager.annotations,
+//                                                                    selectedLocation: $selectedLocation,
+//                                                                    onSelect: {
+//                                                                        self.selectedLocation = nil
+//                                                                        self.viewState = .peek
+//                                                                    }
+//                                                                )
+//                                                                .frame(alignment: .top)
+//                                                                .animation(.easeInOut(duration: 0.2))
+//                                                            }
                             case .closed, .peek:
                                 EmptyView()
                             }
@@ -102,18 +143,60 @@ struct LocationsView: View {
                     }
 
                 }
+                .opacity(0.9)
                 .environmentObject(keyboardState)
 
-//                BottomSheet(viewState: self.$viewPetsState) {
-//                    VStack {
-//                        Text("new bottom sheet").frame(maxWidth: .infinity)
-//                    }
-//                }
+                BottomSheet(viewState: $viewStateLocationFound) {
+                    LocationFoundView(
+                        location: $locationManager.locationFound,
+                        onCloseTouch: {
+                            viewStateLocationFound = .closed
+                            viewState = .half
+                            self.centerCoordinate = MKCoordinateRegion().center
+                        },
+                        onCreateNewTouch: {
+                            self.hideKeyboard()
+                            newPetPresented = true
+                        })
+                }
+
+                BottomSheet(viewState: self.$viewPetsState, showIndicator: false) {
+                    PetListView(list: list,
+                                viewState: $viewState,
+                                viewPetsState: $viewPetsState)
+                }
+
+                .sheet(isPresented: $newPetPresented, content: {
+                    NewPetView(firstLocation: $locationManager.locationFound, onClose: {
+                        newPetPresented = false
+                    })
+                })
+            }
+
+            .alert(isPresented: $showingPlaceDetails) {
+                Alert(
+                    title: Text("Unknown"),
+                    message: Text("Missing place information."),
+                    primaryButton: .default(Text("OK")),
+                    secondaryButton: .default(Text("Edit")) {
+                        // edit this place
+                    })
             }
         }
         .onReceive(locationManager.$locations) { locations in
             self.locations = locations
         }
+        .onReceive(locationManager.$locationFound) { locationFound in
+            if locationFound != nil {
+                self.viewState = .closed
+                self.viewPetsState = .closed
+                self.viewStateLocationFound = .half
+
+                self.centerCoordinate = locationFound?.coordinate ?? CLLocationCoordinate2D()
+            }
+        }
+        .navigationBarHidden(true)
+        .dismissKeyboardOnTapAnywhere()
     }
 }
 
@@ -122,32 +205,3 @@ struct LocationsView_Previews: PreviewProvider {
         LocationsView()
     }
 }
-
-
-
-//            Circle()
-//                .fill(Color.blue)
-//                .opacity(0.3)
-//                .frame(width: 32, height: 32)
-
-//            VStack {
-//                Spacer()
-//                HStack {
-//                    Spacer()
-//                    Button(action: {
-//                        let newLocation = MKPointAnnotation()
-//                        newLocation.coordinate = self.centerCoordinate
-//                        self.locations.append(newLocation)
-//
-//                    }) {
-//                        Image(systemName: "plus")
-//                    }
-//                    .frame(width: 24, height: 24)
-//                    .padding()
-//                    .background(Color.black.opacity(0.75))
-//                    .foregroundColor(.white)
-//                    .font(.title)
-//                    .clipShape(Circle())
-//                    .padding(.trailing)
-//                }
-//            }

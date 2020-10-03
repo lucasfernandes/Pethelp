@@ -1,0 +1,30 @@
+/* 
+  Localizable.strings
+  PetHelp - PT_br
+
+  Created by Lucas Silveira on 20/09/20.
+  
+*/
+
+// LoginView
+"login_meaning" = "O PetHelp foi desenvolvido para ajudar animais de rua que precisam de todos nós para sobreviverem de alguma forma.";
+"login_button_title" = "Login com Facebook";
+
+// Profile
+"profile_title" = "Meu perfil";
+"profile_informations" = "Informações";
+"profile_actions" = "Ações";
+"profile_version" = "Versão";
+"profile_logout" = "Sair";
+
+// Locations
+"locations_options" = "Opções";
+"locations_searchbar" = "Procure por um endereço ou local";
+"locations_button_list_title" = "Lista";
+"locations_button_list_description" = "de pets";
+"locations_button_add_title" = "Adicionar";
+"locations_button_add_description" = "novo pet";
+
+// Pet List
+"pet_list_title" = "Meus bichinhos";
+"pet_list_empty" = "Nenhum bichinho ainda";

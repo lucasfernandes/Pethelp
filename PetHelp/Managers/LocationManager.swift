@@ -13,11 +13,11 @@ class LocationManager: NSObject, ObservableObject {
     private let locationManager = CLLocationManager()
     private let completer: MKLocalSearchCompleter = MKLocalSearchCompleter()
 
-    @Published var location: CLLocation? = nil
     @Published var region = MKCoordinateRegion()
     @Published var searchResults: [MKLocalSearchCompletion] = []
     @Published var annotations: [Location] = []
     @Published var locations: [MKPointAnnotation] = []
+    @Published var locationFound: Location?
     @Published var selectedFragment: String = "" {
         didSet {
             selectedFragment.isEmpty
@@ -29,7 +29,6 @@ class LocationManager: NSObject, ObservableObject {
     override init() {
         super.init()
 
-        self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         self.locationManager.distanceFilter = kCLDistanceFilterNone
         self.locationManager.requestWhenInUseAuthorization()
@@ -39,33 +38,42 @@ class LocationManager: NSObject, ObservableObject {
         self.completer.region = self.region
 
         self.getCurrentLocation()
+        self.getAllLocations()
     }
-}
 
-extension LocationManager: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        print(status.rawValue)
-    }
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.last else {
-            return
+    private func getAllLocations() {
+        let repository = LocationsRepo()
+        repository.get { result in
+            switch result {
+            case .failure(let error):
+                print(error.localizedDescription)
+            case .success(let locations):
+                for location in locations {
+                    self.annotations.append(location)
+
+                    let newLocation = MKPointAnnotation()
+                    newLocation.title = location.title
+                    newLocation.coordinate = location.place.coordinate
+                    self.locations.append(newLocation)
+                }
+
+            }
+
         }
 
-        self.location = location
     }
 }
 
 extension LocationManager {
-    func makeRegion(coordinate: CLLocationCoordinate2D) -> MKCoordinateRegion {
-        return MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
+    private func makeRegion(coordinate: CLLocationCoordinate2D) -> MKCoordinateRegion {
+        return MKCoordinateRegion(
+            center: CLLocationCoordinate2D(latitude: coordinate.latitude,
+                                           longitude: coordinate.longitude),
+            span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
     }
 
     func getCurrentLocation() {
-
-        guard let coordinate = locationManager.location?.coordinate else {
-            return
-        }
-
+        guard let coordinate = locationManager.location?.coordinate else { return }
         region = makeRegion(coordinate: coordinate)
     }
 
@@ -76,35 +84,36 @@ extension LocationManager {
 
         let search = MKLocalSearch(request: searchRequest)
 
-        search.start { response, error in
-            guard let response = response else {
-                print("Error: \(error?.localizedDescription ?? "Unknown error").")
-                return
-            }
+        search.start { response, _ in
+            guard let response = response else { return }
 
             for item in response.mapItems {
                 DispatchQueue.main.async {
-                    self.annotations.append(Location(
-                                                title: item.name ?? "No name found",
-                                                coordinate: CLLocationCoordinate2D(
-                                                    latitude: item.placemark.coordinate.latitude,
-                                                    longitude: item.placemark.coordinate.longitude),
-                                                placemark: item.placemark))
+                    self.locationFound = Location(
+                        id: UUID().description,
+                        title: item.name ?? "No name found",
+                        coordinate: CLLocationCoordinate2D(
+                            latitude: item.placemark.coordinate.latitude,
+                            longitude: item.placemark.coordinate.longitude),
+                        place: item.placemark)
+
+                    self.annotations.append(self.locationFound!)
 
                     let newLocation = MKPointAnnotation()
+                    newLocation.title = item.name ?? ""
                     newLocation.coordinate = item.placemark.coordinate
-                    self.locations.append(newLocation)
+                    self.locations.append(newLocation) // the map loads it after onReceive -> LocationsView
                 }
             }
         }
     }
-
-    func autoCompletedSearch(text: String) {
-        completer.queryFragment = text
-    }
 }
 
 extension LocationManager: MKLocalSearchCompleterDelegate {
+    func autoCompletedSearch(text: String) {
+        completer.queryFragment = text
+    }
+
     func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
         self.searchResults = completer.results
     }

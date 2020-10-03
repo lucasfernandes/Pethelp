@@ -11,16 +11,15 @@ import MapKit
 struct SearchResultsListView: View {
     @Binding var results: [MKLocalSearchCompletion]
     @Binding var selectedFragment: String
-    var onSelect: (() -> Void)? = {}
+    var onSelect: (() -> Void)?
 
     var body: some View {
-        ScrollView() {
+        ScrollView {
             ForEach(results, id: \.self) { result in
                 VStack(spacing: 4) {
                     Button(action: {
                         selectedFragment = result.title
-                        (onSelect ?? {})()
-                    }) {
+                        (onSelect ?? {})()}) {
                         VStack {
                             HStack {
                                 Image(systemName: "mappin.circle.fill")

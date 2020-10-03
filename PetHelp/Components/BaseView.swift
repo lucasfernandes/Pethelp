@@ -25,7 +25,8 @@ struct BaseView<Content: View>: View {
                 content
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+//            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .frame(maxWidth: .infinity, minHeight: UIScreen.main.bounds.height)
         }
         .background(Color("viewBackground"))
         .edgesIgnoringSafeArea(.all)

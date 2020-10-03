@@ -19,7 +19,7 @@ struct ButtonCircle: View {
                 Image(systemName: iconName)
                     .resizable()
                     .frame(width: 20, height: 20, alignment: .center)
-                    .foregroundColor(Color("lightBlue"))
+//                    .foregroundColor(Color("lightBlue"))
                     .font(Font.title.bold())
             })
             .background(
