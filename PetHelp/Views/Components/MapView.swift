@@ -11,11 +11,8 @@ import MapKit
 struct MapView: UIViewRepresentable {
     @Binding var centerCoordinate: CLLocationCoordinate2D
     @Binding var selectedLocation: CLLocationCoordinate2D?
-
-
     @Binding var selectedPlace: MKPointAnnotation?
     @Binding var showingPlaceDetails: Bool
-
 
     var annotations: [MKPointAnnotation]
     var region: MKCoordinateRegion

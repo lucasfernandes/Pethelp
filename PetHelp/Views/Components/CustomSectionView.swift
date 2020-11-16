@@ -22,7 +22,6 @@ struct CustomSectionView: View {
     }
 }
 
-
 struct CustomSectionView_Previews: PreviewProvider {
     static var previews: some View {
         CustomSectionView()

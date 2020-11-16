@@ -8,6 +8,7 @@
 import Foundation
 import MapKit
 import CoreLocation
+import FirebaseFirestore
 
 class LocationManager: NSObject, ObservableObject {
     private let locationManager = CLLocationManager()
@@ -26,6 +27,11 @@ class LocationManager: NSObject, ObservableObject {
         }
     }
 
+    private var currentCoordinate: CLLocation!
+    var collectionRef: CollectionReference!
+    var geoFirestore: GeoFirestore!
+    var sfQuery: GFSQuery!
+
     override init() {
         super.init()
 
@@ -38,7 +44,20 @@ class LocationManager: NSObject, ObservableObject {
         self.completer.region = self.region
 
         self.getCurrentLocation()
-        self.getAllLocations()
+        self.configGeoFire()
+        self.getLocations()
+//        self.getAllLocations()
+//        self.getLocations()
+    }
+
+    private func configGeoFire() {
+        collectionRef = Firestore.firestore().collection("geoloc-test")
+
+        //creates the geoFirestore object and point it to a Firestore collection reference containing documents to geoquery on
+        geoFirestore = GeoFirestore(collectionRef: collectionRef)
+
+        //queries for everything within 1 km of central SF
+        sfQuery = geoFirestore.query(withCenter: currentCoordinate, radius: 50.0)
     }
 
     private func getAllLocations() {
@@ -56,11 +75,46 @@ class LocationManager: NSObject, ObservableObject {
                     newLocation.coordinate = location.place.coordinate
                     self.locations.append(newLocation)
                 }
-
             }
-
         }
+    }
 
+    public func setLocation(coordinate2D: CLLocationCoordinate2D) {
+        //uploads to Firestore
+        let location = CLLocation(latitude: coordinate2D.latitude, longitude: coordinate2D.longitude)
+        geoFirestore.setLocation(location: location, forDocumentWithID: collectionRef.document().documentID) { (err) in
+            if let error = err {
+                print("ERROR CREATING DOCUMENT")
+                print(error)
+            }
+        }
+    }
+
+    public func getLocations() {
+        _ = sfQuery.observe(.documentEntered, with: { (key, location) in
+            if let key = key, let loc = location {
+                let newLocation = MKPointAnnotation()
+                newLocation.title = key
+                newLocation.coordinate = loc.coordinate
+                self.locations.append(newLocation)
+            }
+        })
+
+//        uses Handles to remove queries
+//        _ = sfQuery.observe(.documentExited, with: { (key, location) in
+//            if let key = key {
+//                if let ann =
+//                    self.mapView.annotations.first(where: { (annotation) -> Bool in
+//                        return annotation.title == key
+//                    })
+//                {
+//                    DispatchQueue.main.async {
+//                        self.mapView.removeAnnotation(ann)
+//                    }
+//                    print("Removed \(key)!")
+//                }
+//            }
+//        })
     }
 }
 
@@ -75,6 +129,7 @@ extension LocationManager {
     func getCurrentLocation() {
         guard let coordinate = locationManager.location?.coordinate else { return }
         region = makeRegion(coordinate: coordinate)
+        currentCoordinate = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
     }
 
     func search(text: String) {

@@ -11,7 +11,7 @@ import MapKit
 struct LocationsView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var userStore: UserStore
-    @ObservedObject private var locationManager = LocationManager()
+    @ObservedObject private var locationManager = LocationManagerX()
     @State private var search = ""
     //    @State private var trackingMode = MapUserTrackingMode.follow
     @State var viewState: BottomSheetViewState = .half
@@ -156,7 +156,8 @@ struct LocationsView: View {
                         },
                         onCreateNewTouch: {
                             self.hideKeyboard()
-                            newPetPresented = true
+                            self.locationManager.setLocation(coordinate2D: $locationManager.locationFound.wrappedValue?.coordinate ?? CLLocationCoordinate2D()) { _ in }
+//                            newPetPresented = true
                         })
                 }
 

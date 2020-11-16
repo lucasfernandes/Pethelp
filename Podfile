@@ -16,5 +16,6 @@ target 'PetHelp' do
   pod 'Firebase/Storage'
   pod 'FirebaseFirestoreSwift'
   pod 'TLCustomMask'
+  pod 'GeoFire', '~> 4.0'
   pod 'SwiftLint', '~> 0.27'
 end

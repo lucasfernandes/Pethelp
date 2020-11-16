@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		23AA5223C90AD984D66BACDB /* Pods_PetHelp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66E1F5351E82C6E8CCE33DEB /* Pods_PetHelp.framework */; };
+		64A5D912BA977334660B4327 /* Pods_PetHelp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CC1C367E9EFE417FF8FBB20 /* Pods_PetHelp.framework */; };
 		E303430C24F43A7000082D1D /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E303430B24F43A7000082D1D /* Launch Screen.storyboard */; };
 		E3259F8424F09B0E00EBE511 /* ButtonSpaced.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3259F8324F09B0E00EBE511 /* ButtonSpaced.swift */; };
 		E333CCA624FC38EE004BACC7 /* SearchResultsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E333CCA524FC38EE004BACC7 /* SearchResultsListView.swift */; };
@@ -20,8 +20,12 @@
 		E3713D2E251437B700557A0B /* NewPetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3713D2D251437B700557A0B /* NewPetView.swift */; };
 		E3713D3025143C8A00557A0B /* RoundedTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3713D2F25143C8900557A0B /* RoundedTextEditor.swift */; };
 		E3791A472509419E00AB9EFB /* KeyboardState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3791A462509419E00AB9EFB /* KeyboardState.swift */; };
+		E37A8D3C2531EF6200F8D1E7 /* Mappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37A8D3B2531EF6200F8D1E7 /* Mappable.swift */; };
+		E37A8D4025321BC900F8D1E7 /* LocationManagerX.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37A8D3F25321BC900F8D1E7 /* LocationManagerX.swift */; };
+		E37A8D442534838400F8D1E7 /* Pets.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37A8D432534838400F8D1E7 /* Pets.swift */; };
 		E38DB83F24F738800034AA47 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38DB83E24F738800034AA47 /* LoadingView.swift */; };
 		E38DB84124F741D30034AA47 /* PetListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38DB84024F741D30034AA47 /* PetListItemView.swift */; };
+		E39483B0252954AB00115C13 /* Geofirestore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39483AF252954AB00115C13 /* Geofirestore.swift */; };
 		E395E0012503E6820075BF84 /* AnnotationsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E395E0002503E6820075BF84 /* AnnotationsListView.swift */; };
 		E395E00525044A900075BF84 /* BottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E395E00325044A900075BF84 /* BottomSheet.swift */; };
 		E395E00625044A900075BF84 /* BottomSheetDragIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E395E00425044A900075BF84 /* BottomSheetDragIndicator.swift */; };
@@ -64,9 +68,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2462913B53F4489AA09383E0 /* Pods-PetHelp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetHelp.debug.xcconfig"; path = "Target Support Files/Pods-PetHelp/Pods-PetHelp.debug.xcconfig"; sourceTree = "<group>"; };
-		41CD760006D886CF45A958D7 /* Pods-PetHelp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetHelp.release.xcconfig"; path = "Target Support Files/Pods-PetHelp/Pods-PetHelp.release.xcconfig"; sourceTree = "<group>"; };
-		66E1F5351E82C6E8CCE33DEB /* Pods_PetHelp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetHelp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2CC1C367E9EFE417FF8FBB20 /* Pods_PetHelp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetHelp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3633E389B23F54F192DCA990 /* Pods-PetHelp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetHelp.release.xcconfig"; path = "Target Support Files/Pods-PetHelp/Pods-PetHelp.release.xcconfig"; sourceTree = "<group>"; };
 		E303430B24F43A7000082D1D /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		E3259F8324F09B0E00EBE511 /* ButtonSpaced.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSpaced.swift; sourceTree = "<group>"; };
 		E333CCA524FC38EE004BACC7 /* SearchResultsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsListView.swift; sourceTree = "<group>"; };
@@ -79,8 +82,12 @@
 		E3713D2D251437B700557A0B /* NewPetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPetView.swift; sourceTree = "<group>"; };
 		E3713D2F25143C8900557A0B /* RoundedTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextEditor.swift; sourceTree = "<group>"; };
 		E3791A462509419E00AB9EFB /* KeyboardState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardState.swift; sourceTree = "<group>"; };
+		E37A8D3B2531EF6200F8D1E7 /* Mappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mappable.swift; sourceTree = "<group>"; };
+		E37A8D3F25321BC900F8D1E7 /* LocationManagerX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerX.swift; sourceTree = "<group>"; };
+		E37A8D432534838400F8D1E7 /* Pets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pets.swift; sourceTree = "<group>"; };
 		E38DB83E24F738800034AA47 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		E38DB84024F741D30034AA47 /* PetListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetListItemView.swift; sourceTree = "<group>"; };
+		E39483AF252954AB00115C13 /* Geofirestore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geofirestore.swift; sourceTree = "<group>"; };
 		E395E0002503E6820075BF84 /* AnnotationsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationsListView.swift; sourceTree = "<group>"; };
 		E395E00325044A900075BF84 /* BottomSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomSheet.swift; sourceTree = "<group>"; };
 		E395E00425044A900075BF84 /* BottomSheetDragIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomSheetDragIndicator.swift; sourceTree = "<group>"; };
@@ -123,6 +130,7 @@
 		E3EEF8FD251D1A2200C5183C /* View+HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+HideKeyboard.swift"; sourceTree = "<group>"; };
 		E3EEF901251D1A9B00C5183C /* DismissKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissKeyboard.swift; sourceTree = "<group>"; };
 		E3FEAF6C24F14E3E00F7EC2D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		F81D05AEAA62F3DA549EC09E /* Pods-PetHelp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetHelp.debug.xcconfig"; path = "Target Support Files/Pods-PetHelp/Pods-PetHelp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,28 +138,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23AA5223C90AD984D66BACDB /* Pods_PetHelp.framework in Frameworks */,
+				64A5D912BA977334660B4327 /* Pods_PetHelp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		846261AA724F98EAD0D55A6E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2CC1C367E9EFE417FF8FBB20 /* Pods_PetHelp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AA2D9138A58833E642F12AFC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				2462913B53F4489AA09383E0 /* Pods-PetHelp.debug.xcconfig */,
-				41CD760006D886CF45A958D7 /* Pods-PetHelp.release.xcconfig */,
+				F81D05AEAA62F3DA549EC09E /* Pods-PetHelp.debug.xcconfig */,
+				3633E389B23F54F192DCA990 /* Pods-PetHelp.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		C98269B53F006C7964A5EF1A /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				66E1F5351E82C6E8CCE33DEB /* Pods_PetHelp.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		E3259F8224F09AC300EBE511 /* Components */ = {
@@ -179,6 +187,32 @@
 				E357B5CF251786D000B23417 /* ImagesView.swift */,
 			);
 			path = PHPickerSelection;
+			sourceTree = "<group>";
+		};
+		E37A8D392531EF0F00F8D1E7 /* DomainLayer */ = {
+			isa = PBXGroup;
+			children = (
+				E37A8D422534836000F8D1E7 /* Pets */,
+				E37A8D3A2531EF3A00F8D1E7 /* MapManager */,
+			);
+			path = DomainLayer;
+			sourceTree = "<group>";
+		};
+		E37A8D3A2531EF3A00F8D1E7 /* MapManager */ = {
+			isa = PBXGroup;
+			children = (
+				E37A8D3B2531EF6200F8D1E7 /* Mappable.swift */,
+				E37A8D3F25321BC900F8D1E7 /* LocationManagerX.swift */,
+			);
+			path = MapManager;
+			sourceTree = "<group>";
+		};
+		E37A8D422534836000F8D1E7 /* Pets */ = {
+			isa = PBXGroup;
+			children = (
+				E37A8D432534838400F8D1E7 /* Pets.swift */,
+			);
+			path = Pets;
 			sourceTree = "<group>";
 		};
 		E395E00225044A900075BF84 /* BottomSheet */ = {
@@ -225,7 +259,7 @@
 				E3ADD8D924F0976A00ED43A9 /* PetHelp */,
 				E3ADD8D824F0976A00ED43A9 /* Products */,
 				AA2D9138A58833E642F12AFC /* Pods */,
-				C98269B53F006C7964A5EF1A /* Frameworks */,
+				846261AA724F98EAD0D55A6E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -240,6 +274,7 @@
 		E3ADD8D924F0976A00ED43A9 /* PetHelp */ = {
 			isa = PBXGroup;
 			children = (
+				E37A8D392531EF0F00F8D1E7 /* DomainLayer */,
 				E3AF613E2521323D006D3F6B /* DataLayer */,
 				E3580C9E24FC161000BED59C /* GoogleService-Info.plist */,
 				E3D3CE3024F9C70500A59D19 /* Managers */,
@@ -333,6 +368,7 @@
 		E3D3CE3024F9C70500A59D19 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				E39483AF252954AB00115C13 /* Geofirestore.swift */,
 				E3D3CE3124F9C71900A59D19 /* LocationManager.swift */,
 				E3791A462509419E00AB9EFB /* KeyboardState.swift */,
 			);
@@ -368,20 +404,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E3ADD8E624F0976C00ED43A9 /* Build configuration list for PBXNativeTarget "PetHelp" */;
 			buildPhases = (
-				B16FEFA58992FC3630CCC338 /* [CP] Check Pods Manifest.lock */,
+				98673FCE412FC1C27C0821F4 /* [CP] Check Pods Manifest.lock */,
 				E3ADD8D324F0976A00ED43A9 /* Sources */,
 				E3ADD8D424F0976A00ED43A9 /* Frameworks */,
 				E3ADD8D524F0976A00ED43A9 /* Resources */,
-				A0A8387B7F6515ECA8DEBE3E /* [CP] Embed Pods Frameworks */,
 				E3B6FD192517F0AB00814FCE /* ShellScript */,
+				8BE6043A15DD51CDA62D1741 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = PetHelp;
-			packageProductDependencies = (
-			);
 			productName = PetHelp;
 			productReference = E3ADD8D724F0976A00ED43A9 /* PetHelp.app */;
 			productType = "com.apple.product-type.application";
@@ -409,8 +443,6 @@
 				"pt-BR",
 			);
 			mainGroup = E3ADD8CE24F0976A00ED43A9;
-			packageReferences = (
-			);
 			productRefGroup = E3ADD8D824F0976A00ED43A9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -436,7 +468,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		A0A8387B7F6515ECA8DEBE3E /* [CP] Embed Pods Frameworks */ = {
+		8BE6043A15DD51CDA62D1741 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -453,7 +485,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PetHelp/Pods-PetHelp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B16FEFA58992FC3630CCC338 /* [CP] Check Pods Manifest.lock */ = {
+		98673FCE412FC1C27C0821F4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -500,6 +532,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3A3F87A24F3402B0065E6A7 /* KeyboardHeightPublisher.swift in Sources */,
+				E37A8D4025321BC900F8D1E7 /* LocationManagerX.swift in Sources */,
 				E3259F8424F09B0E00EBE511 /* ButtonSpaced.swift in Sources */,
 				E395E00525044A900075BF84 /* BottomSheet.swift in Sources */,
 				E38DB84124F741D30034AA47 /* PetListItemView.swift in Sources */,
@@ -519,6 +552,7 @@
 				E395E0012503E6820075BF84 /* AnnotationsListView.swift in Sources */,
 				E3580CA124FC1B8800BED59C /* Location.swift in Sources */,
 				E3580CA324FC1FD100BED59C /* MapAnnotationView.swift in Sources */,
+				E39483B0252954AB00115C13 /* Geofirestore.swift in Sources */,
 				E3EEF8FE251D1A2200C5183C /* View+HideKeyboard.swift in Sources */,
 				E395E00825051FA40075BF84 /* SearchBar.swift in Sources */,
 				E3BA036F24F5D378003E36B4 /* String+getImage.swift in Sources */,
@@ -526,6 +560,7 @@
 				E3713D2E251437B700557A0B /* NewPetView.swift in Sources */,
 				E35BA45B2511A08A004FE28C /* ButtonCircle.swift in Sources */,
 				E39FC04E24F49449002C12CB /* User.swift in Sources */,
+				E37A8D442534838400F8D1E7 /* Pets.swift in Sources */,
 				E3D53A002506B7EE00F71F6C /* LocationsView.swift in Sources */,
 				E3AF616525213D4A006D3F6B /* LocationDTO.swift in Sources */,
 				E3713D3025143C8A00557A0B /* RoundedTextEditor.swift in Sources */,
@@ -539,6 +574,7 @@
 				E395E00625044A900075BF84 /* BottomSheetDragIndicator.swift in Sources */,
 				E3713D2C25140DB200557A0B /* SheetHeaderView.swift in Sources */,
 				E3B57A02252681FC00393DD4 /* Pet+initWithPetDTO.swift in Sources */,
+				E37A8D3C2531EF6200F8D1E7 /* Mappable.swift in Sources */,
 				E3D3CE3224F9C71900A59D19 /* LocationManager.swift in Sources */,
 				E3D3CE2B24F9BF9200A59D19 /* MapView2.swift in Sources */,
 				E3B6FD852518179E00814FCE /* PetListView.swift in Sources */,
@@ -683,7 +719,7 @@
 		};
 		E3ADD8E724F0976C00ED43A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2462913B53F4489AA09383E0 /* Pods-PetHelp.debug.xcconfig */;
+			baseConfigurationReference = F81D05AEAA62F3DA549EC09E /* Pods-PetHelp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -708,7 +744,7 @@
 		};
 		E3ADD8E824F0976C00ED43A9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 41CD760006D886CF45A958D7 /* Pods-PetHelp.release.xcconfig */;
+			baseConfigurationReference = 3633E389B23F54F192DCA990 /* Pods-PetHelp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

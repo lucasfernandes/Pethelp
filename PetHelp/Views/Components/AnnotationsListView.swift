@@ -13,13 +13,18 @@ struct AnnotationsListView: View {
     @Binding var selectedLocation: CLLocationCoordinate2D?
     var onSelect: (() -> Void)
 
+    private func buttonTouch(annotation: Location) {
+        onSelect()
+        selectedLocation = annotation.coordinate
+    }
+
     var body: some View {
         ScrollView {
             ForEach(annotations) { annotation in
                 VStack(spacing: 4) {
                     Button(action: {
-                            onSelect()
-                            selectedLocation = annotation.coordinate}) {
+                        buttonTouch(annotation: annotation)
+                    }, label: {
                         VStack(spacing: 3) {
                             Text(annotation.title)
                                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -39,7 +44,7 @@ struct AnnotationsListView: View {
                                 .foregroundColor(.secondary)
                             Divider().background(Color("listItemOpaqueLightGray")).padding(.top, 10)
                         }
-                    }
+                    })
                 }
                 .padding(.horizontal)
             }
