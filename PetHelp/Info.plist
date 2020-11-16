@@ -27,31 +27,6 @@
 			</array>
 		</dict>
 	</array>
-
-<!---->
-<!--    <key>CFBundleVersion</key>-->
-<!--    <string>1</string>-->
-<!--    <key>CFBundleURLTypes</key>-->
-<!--    <array>-->
-<!--        <dict>-->
-<!--            <key>CFBundleURLSchemes</key>-->
-<!--            <array>-->
-<!--                <string>fb678830942976797</string>-->
-<!--            </array>-->
-<!--        </dict>-->
-<!--    </array>-->
-<!--    <key>FacebookAppID</key>-->
-<!--    <string>678830942976797</string>-->
-<!--    <key>FacebookDisplayName</key>-->
-<!--    <string>PetHelp</string>-->
-<!--    <key>LSApplicationQueriesSchemes</key>-->
-<!--    <array>-->
-<!--        <string>fbapi</string>-->
-<!--        <string>fb-messenger-share-api</string>-->
-<!--        <string>fbauth2</string>-->
-<!--        <string>fbshareextension</string>-->
-<!--    </array>-->
-
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>FacebookAppID</key>
@@ -76,16 +51,10 @@
 		<string>fbauth2</string>
 		<string>fbshareextension</string>
 	</array>
-
-
-
-
-
-
-
-
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>PetHelp precisa saber onde você está para encontrar animais perto de você</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

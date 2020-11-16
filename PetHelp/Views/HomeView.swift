@@ -9,6 +9,9 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject var userStore: UserStore
+    @State var newIsPresented = false
+
+
     let list = [1, 2, 3]
     let emptyList: [Int] = []
 
@@ -27,18 +30,25 @@ struct HomeView: View {
                         Text("Nenhum item na lista")
                     }
                     .frame(maxHeight: .infinity, alignment: .center)
+                    .padding(.top, 100)
                 }
             }
             .padding(.horizontal, 16)
-            .navigationBarTitle("Minha lista")
+            .navigationBarTitle("Minha lista", displayMode: .inline)
             .navigationBarBackButtonHidden(true)
             .navigationBarItems(leading: AvatarView(), trailing: Button(action: {
-                userStore.logout()
+                newIsPresented = true
             }, label: {
                 Image(systemName: "plus")
                     .foregroundColor(Color("lightBlue"))
             }))
         }
+
+//        NavigationLink(destination: MapView(), isActive: $newIsPresented) {}
+
+//        .sheet(isPresented: $newIsPresented) {
+//            MapView()
+//        }
     }
 }
 

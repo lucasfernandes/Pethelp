@@ -7,20 +7,29 @@
 
 import SwiftUI
 import FBSDKCoreKit
+import MapKit
 
 struct ContentView: View {
     var userStore = UserStore()
+
+    init() {
+        UITextView.appearance().backgroundColor = .clear
+    }
     var body: some View {
+//        NewPetView()
         LoginView()
-//        PetListView()
-            .onOpenURL(perform: { url in
+            .onOpenURL(perform: { urlToOpen in
                 ApplicationDelegate.shared.application(
                     UIApplication.shared,
-                    open: url,
+                    open: urlToOpen,
                     sourceApplication: nil,
                     annotation: UIApplication.OpenURLOptionsKey.annotation)
             })
             .environmentObject(userStore)
+
+//        LocationsView()
+//            .environmentObject(userStore)
+//        ImagesView()
     }
 }
 

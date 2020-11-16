@@ -6,24 +6,28 @@
 //
 
 import SwiftUI
+import FBSDKLoginKit
 
 struct LoginView: View {
     @State var linkIsActive = false
+    @State var manager = LoginManager()
+    @State var userIsLogged = false
     @EnvironmentObject var userStore: UserStore
 
     var body: some View {
         ZStack {
-        NavigationView {
-            BaseView {
+            NavigationView {
+                BaseView {
                     VStack {
                         Image("Logo")
                             .resizable()
+                            .frame(width: 374.29, height: 49.4)
 
                         Image("Illustration")
                             .resizable()
                             .frame(height: 400)
 
-                        Text("O PetHelp foi desenvolvido para ajudar animais de rua que precisam de todos nós para sobreviverem de alguma forma.")
+                        Text("login_meaning")
                             .font(.system(size: 16, weight: .regular, design: .default))
                             .foregroundColor(.gray)
                             .multilineTextAlignment(.center)
@@ -31,15 +35,19 @@ struct LoginView: View {
                             .padding([.leading, .bottom, .trailing], 16)
 
                         Spacer().frame(height: 30)
-                        ButtonSpaced(title: $userStore.logged.wrappedValue ? "Continuar" : "Login com Facebook") {
-                            $userStore.logged.wrappedValue == false
+                        ButtonSpaced(title: NSLocalizedString("login_button_title", comment: "")) {
+                            $userIsLogged.wrappedValue == false
                                 ? userStore.loginWithFacebook()
                                 : userStore.getUser()
+                        }.padding(.horizontal, 16)
+
+                        if $userIsLogged.wrappedValue == true {
+                            NavigationLink(destination: LocationsView(), isActive: $userStore.hasUserInfo) {}
                         }
-                        NavigationLink(destination: HomeView(), isActive: $userStore.hasUserInfo) {}
                     }
                     .navigationBarHidden(true)
-                    .padding(.all, 16)
+                    .padding(.horizontal, 16)
+                    .padding(.top, 24)
                 }
             }
 
@@ -47,6 +55,9 @@ struct LoginView: View {
                 LoadingView()
             }
         }
+        .onReceive(userStore.$logged, perform: { logged in
+            self.userIsLogged = logged
+        })
     }
 }
 

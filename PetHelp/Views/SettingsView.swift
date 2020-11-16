@@ -14,7 +14,14 @@ struct SettingsView: View {
     let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
 
     var body: some View {
-        NavigationView {
+        VStack(alignment: .leading) {
+            SheetHeaderView(
+                title: NSLocalizedString("profile_title", comment: ""),
+                onTouch: {
+                    self.presentationMode.wrappedValue.dismiss()
+                })
+                .padding(.all, 16)
+
             List {
                 HStack(spacing: 10) {
                     userStore.user?.picture.data.url.getImage().renderingMode(.original)
@@ -30,26 +37,19 @@ struct SettingsView: View {
                     }
                 }
 
-                Section(header: Text("Informações")) {
-                    Text("Version \(appVersion!)")
+                Section(header: Text("profile_informations")) {
+                    Text("\(NSLocalizedString("profile_version", comment: "")) \(appVersion!)")
                 }
-                Section(header: Text("Ações")) {
+                Section(header: Text("profile_actions")) {
                     Button(action: {
                         userStore.logout()
                         self.presentationMode.wrappedValue.dismiss()
                     }, label: {
-                        Text("Sair")
+                        Text("profile_logout")
                     })
                 }
             }
             .listStyle(GroupedListStyle())
-            .navigationBarTitle("Perfil", displayMode: .inline)
-            .navigationBarItems(trailing: Button(action: {
-                self.presentationMode.wrappedValue.dismiss()
-            }) {
-                Image(systemName: "xmark.circle")
-                    .font(Font.system(.headline))
-            })
         }
     }
 }

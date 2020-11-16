@@ -1,0 +1,30 @@
+/* 
+  Localizable.strings
+  PetHelp - En
+
+  Created by Lucas Silveira on 20/09/20.
+  
+*/
+
+// LoginView
+"login_meaning" = "The PetHelp was developed to help abandoned pets the are living on the streets and needs our help to survive anyway.";
+"login_button_title" = "Login with Facebook";
+
+// Profile
+"profile_title" = "My profile";
+"profile_informations" = "Informations";
+"profile_actions" = "Actions";
+"profile_version" = "Version";
+"profile_logout" = "Logout";
+
+// Locations
+"locations_options" = "Options";
+"locations_searchbar" = "Look for an address or a place";
+"locations_button_list_title" = "List";
+"locations_button_list_description" = "of pets";
+"locations_button_add_title" = "Add";
+"locations_button_add_description" = "new pet";
+
+// Pet List
+"pet_list_title" = "My pets";
+"pet_list_empty" = "No pets yet";
